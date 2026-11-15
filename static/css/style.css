@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f2f4f8;
+}
+
+header {
+    background: linear-gradient(90deg,#2b1055,#7597de);
+    color: white;
+    padding: 18px 30px;
+    font-size: 22px;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 230px;
+    background: #2b1055;
+    min-height: 100vh;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #3e1f7a;
+}
+
+.main {
+    flex: 1;
+    padding: 40px;
+}
