@@ -1,6 +1,6 @@
-# Mobile Shop Management System
+# Mobile Shop Inventory Management System
 
-A Flask web application for a mobile phone and accessories shop. Customers can browse products, pay online (UPI / QR), place orders and give feedback. The shop admin manages products, customers, payments, and sends email / SMS updates from an admin panel.
+A Flask web application to manage the stock, sales and customers of a mobile phone and accessories shop. Customers can browse products, pay online (UPI / QR), place orders and give feedback. The shop admin manages products, customers, payments, and sends email / SMS updates from an admin panel.
 
 ## Features
 
@@ -29,7 +29,7 @@ A Flask web application for a mobile phone and accessories shop. Customers can b
 
 ## Project Structure
 ```
-mobile-shop-management/
+Mobile-Shop-Inventory-Management-System/
 ├── app.py                       # All Flask routes and logic
 ├── products_catalog.json        # Product catalog (sample data)
 ├── local_config.example.json    # Template for email / SMS credentials
@@ -48,8 +48,8 @@ mobile-shop-management/
 
 ### 1. Clone and install
 ```bash
-git clone https://github.com/<your-username>/mobile-shop-management.git
-cd mobile-shop-management
+git clone https://github.com/PriyankaM2006/Mobile-Shop-Inventory-Management-System.git
+cd Mobile-Shop-Inventory-Management-System
 python -m venv venv
 venv\Scripts\activate          # Linux/Mac: source venv/bin/activate
 pip install -r requirements.txt
