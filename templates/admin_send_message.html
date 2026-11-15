@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Send Message - Admin Panel</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    max-width:700px;
+    margin:0 auto;
+}
+
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom:20px;
+}
+
+.card h2{
+    color:#333;
+    margin-bottom:25px;
+    font-size:24px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.customer-info{
+    background:#f0f9ff;
+    border-left:4px solid #0ea5e9;
+    padding:15px;
+    border-radius:6px;
+    margin-bottom:25px;
+}
+
+.customer-info p{
+    margin:8px 0;
+    font-size:14px;
+    color:#0c4a6e;
+}
+
+.customer-info strong{
+    color:#0369a1;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#333;
+    font-weight:600;
+    font-size:14px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:14px;
+    font-family:inherit;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,0.1);
+}
+
+textarea{
+    resize:vertical;
+    min-height:150px;
+}
+
+.message-type-toggle{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.message-type-btn{
+    padding:12px;
+    border:2px solid #d1d5db;
+    background:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+    text-align:center;
+}
+
+.message-type-btn:hover{
+    border-color:#2563eb;
+    color:#2563eb;
+}
+
+.message-type-btn.active{
+    background:#2563eb;
+    color:#fff;
+    border-color:#2563eb;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+}
+
+.btn{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition:0.3s;
+    font-size:15px;
+}
+
+.btn-send{
+    background:#22c55e;
+    color:#fff;
+}
+
+.btn-send:hover{
+    background:#16a34a;
+}
+
+.btn-back{
+    background:#6b7280;
+    color:#fff;
+}
+
+.btn-back:hover{
+    background:#4b5563;
+}
+
+.template-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.template-btn{
+    padding:8px;
+    background:#f3f4f6;
+    border:1px solid #d1d5db;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:12px;
+    transition:0.3s;
+}
+
+.template-btn:hover{
+    background:#e5e7eb;
+}
+
+.info-box{
+    background:#fef3c7;
+    border-left:4px solid #f59e0b;
+    padding:15px;
+    border-radius:6px;
+    margin-bottom:20px;
+    font-size:13px;
+    color:#92400e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>
+            <i class="fa fa-envelope"></i> Send Message to Customer
+        </h2>
+
+        <div class="customer-info">
+            <p><strong>Customer:</strong> {{ customer.name }}</p>
+            <p><strong>Email:</strong> {{ customer.email }}</p>
+            <p><strong>Phone:</strong> {{ customer.mobile }}</p>
+            <p><strong>Product:</strong> {{ customer.product }}</p>
+        </div>
+
+        <div class="info-box">
+            <i class="fa fa-info-circle"></i> Send email notification to customer about their order
+        </div>
+
+        <form method="POST">
+            <div class="form-group">
+                <label>Message Type</label>
+                <div class="message-type-toggle">
+                    <button type="button" class="message-type-btn active" onclick="selectMessageType('email')">
+                        <i class="fa fa-envelope"></i> Email
+                    </button>
+                </div>
+                <input type="hidden" name="message_type" id="messageType" value="email" required>
+            </div>
+
+            <div class="form-group" id="subjectGroup">
+                <label>Subject</label>
+                <input type="text" name="subject" placeholder="e.g., Order Update, Delivery Notification" value="Order Update" required>
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <div class="template-buttons">
+                    <button type="button" class="template-btn" onclick="insertTemplate('order_update')">
+                        📦 Order Update
+                    </button>
+                    <button type="button" class="template-btn" onclick="insertTemplate('delivery')">
+                        🚚 Delivery Notice
+                    </button>
+                    <button type="button" class="template-btn" onclick="insertTemplate('thank_you')">
+                        🙏 Thank You
+                    </button>
+                    <button type="button" class="template-btn" onclick="insertTemplate('promotion')">
+                        🎉 Promotion
+                    </button>
+                </div>
+                <textarea name="message" id="messageText" placeholder="Enter your message here..." required></textarea>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="btn btn-send">
+                    <i class="fa fa-paper-plane"></i> Send Message
+                </button>
+                <a href="/admin/customer/{{ customer.id }}" class="btn btn-back">
+                    <i class="fa fa-arrow-left"></i> Back
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function selectMessageType(type) {
+    // Update hidden input
+    document.getElementById('messageType').value = type;
+    
+    // Update button styles
+    document.querySelectorAll('.message-type-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.closest('.message-type-btn').classList.add('active');
+    
+    // Hide subject for SMS
+    const subjectGroup = document.getElementById('subjectGroup');
+    if (type === 'sms') {
+        subjectGroup.style.display = 'none';
+    } else {
+        subjectGroup.style.display = 'block';
+    }
+}
+
+function insertTemplate(template) {
+    const textarea = document.getElementById('messageText');
+    const templates = {
+        order_update: `Dear {{ customer.name }},
+
+Your order for {{ customer.product }} has been updated. 
+
+Order ID: {{ customer.id }}
+Amount: ₹{{ customer.amount }}
+
+We will keep you updated on the status of your delivery.
+
+Thank you for your business!
+
+Best regards,
+Mobile Sales & Accessories Team
+📞 9876543210 
+📧 shop@example.com`,
+        
+        delivery: `Dear {{ customer.name }},
+
+Great news! Your order is on the way.
+
+Order ID: {{ customer.id }}
+Product: {{ customer.product }}
+Delivery Address: {{ customer.address }}
+
+You will receive your package within 2-3 business days.
+
+Thank you for your purchase!
+
+Mobile Sales & Accessories Team`,
+        
+        thank_you: `Dear {{ customer.name }},
+
+Thank you for choosing us for your {{ customer.product }} purchase!
+
+We appreciate your business and would love to serve you again.
+
+If you have any questions about your order, feel free to contact us:
+📞 9876543210
+📧 shop@example.com
+
+Best regards,
+Mobile Sales & Accessories Team`,
+        
+        promotion: `Dear {{ customer.name }},
+
+Exciting news! We have a special promotion for you!
+
+Get up to 20% off on selected items this week only.
+
+Visit us or call: 📞 9876543210
+
+Use code: MOBILE20 for additional 5% discount!
+
+Limited time offer - Don't miss out!
+
+Mobile Sales & Accessories Team`
+    };
+    
+    textarea.value = templates[template] || '';
+}
+
+// Set default subject based on message type
+window.addEventListener('DOMContentLoaded', function() {
+    selectMessageType('email');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Screen Protectors Under ₹200</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #1e293b;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 10px;
+}
+.card-content h3 {
+    font-size: 15px;
+    color: #111827;
+    margin: 8px 0;
+}
+.card-content p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #334155;
+}
+.price {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2563eb;
+}
+button {
+  margin-top: 8px;
+  padding: 8px 18px;
+  background-color: #1b6be0;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1454b8;
+}
+</style>
+</head>
+<body>
+
+<h1>Screen Protectors </h1>
+
+<div class="grid">
+
+  <div class="card">
+      <img src="static/images/tempor/1.png" alt="Tempered Glass Screen Protector">
+      <div class="card-content">
+          <h3>Tempered Glass Protector</h3>
+          <p>9H Hardness | Scratch Resistant</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Tempered Glass Protector", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/2.png" alt="Matte Screen Protector">
+      <div class="card-content">
+          <h3>Matte Screen Protector</h3>
+          <p>Anti Glare | Fingerprint Resistant</p>
+          <p class="price">₹179</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Matte Screen Protector", price:179})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/3.png" alt="Full Cover Screen Protector">
+      <div class="card-content">
+          <h3>Full Cover Protector</h3>
+          <p>Edge to Edge | Shock Proof</p>
+          <p class="price">₹189</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Full Cover Protector", price:189})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/4.png" alt="Clear Screen Protector">
+      <div class="card-content">
+          <h3>Clear Screen Protector</h3>
+          <p>HD Clarity | Anti Scratch</p>
+          <p class="price">₹150</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Clear Screen Protector", price:150})'>Pay Now</button>
+      </div>
+  </div>
+
+  
+
+  <div class="card">
+      <img src="static/images/tempor/6.png" alt="Privacy Screen Protector">
+      <div class="card-content">
+          <h3>Privacy Screen Protector</h3>
+          <p>Prevents Shoulder Peek | Scratch Proof</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Privacy Screen Protector", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/7.png" alt="Edge Tempered Glass">
+      <div class="card-content">
+          <h3>Edge Tempered Glass</h3>
+          <p>Curved Edges | Shock Resistant</p>
+          <p class="price">₹180</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Edge Tempered Glass", price:180})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/8.png" alt="Hydrogel Screen Protector">
+      <div class="card-content">
+          <h3>Hydrogel Protector</h3>
+          <p>Flexible | Self-Healing</p>
+          <p class="price">₹160</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Hydrogel Protector", price:160})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/9.png" alt="Glossy Screen Protector">
+      <div class="card-content">
+          <h3>Glossy Screen Protector</h3>
+          <p>HD Display | Anti Fingerprint</p>
+          <p class="price">₹170</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Glossy Screen Protector", price:170})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/10.png" alt="Soft Film Protector">
+      <div class="card-content">
+          <h3>Soft Film Protector</h3>
+          <p>Lightweight | Flexible</p>
+          <p class="price">₹120</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Soft Film Protector", price:120})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/11.png" alt="Anti-Glare Protector">
+      <div class="card-content">
+          <h3>Anti-Glare Protector</h3>
+          <p>Matte Finish | Scratch Resistant</p>
+          <p class="price">₹150</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Anti-Glare Protector", price:150})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/12.png" alt="Clear Tempered Glass">
+      <div class="card-content">
+          <h3>Clear Tempered Glass</h3>
+          <p>High Clarity | 9H Hardness</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Clear Tempered Glass", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  
+
+  <div class="card">
+      <img src="static/images/tempor/14.png" alt="Matte Privacy Protector">
+      <div class="card-content">
+          <h3>Matte Privacy Protector</h3>
+          <p>Prevents Shoulder Peek | HD Display</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Matte Privacy Protector", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/15.png" alt="Curved Edge Protector">
+      <div class="card-content">
+          <h3>Curved Edge Protector</h3>
+          <p>Edge Protection | Shock Resistant</p>
+          <p class="price">₹190</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Curved Edge Protector", price:190})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/16.png" alt="Full Screen Protector">
+      <div class="card-content">
+          <h3>Full Screen Protector</h3>
+          <p>Edge-to-Edge Coverage | Scratch Proof</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Full Screen Protector", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/17.png" alt="Soft Film Matte">
+      <div class="card-content">
+          <h3>Soft Film Matte</h3>
+          <p>Matte | Anti Fingerprint</p>
+          <p class="price">₹120</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Soft Film Matte", price:120})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/18.png" alt="Anti-Scratch Protector">
+      <div class="card-content">
+          <h3>Anti-Scratch Protector</h3>
+          <p>Durable | Flexible</p>
+          <p class="price">₹180</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Anti-Scratch Protector", price:180})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/19.png" alt="Ultra Clear Protector">
+      <div class="card-content">
+          <h3>Ultra Clear Protector</h3>
+          <p>HD Clarity | Scratch Resistant</p>
+          <p class="price">₹150</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Ultra Clear Protector", price:150})'>Pay Now</button>
+      </div>
+  </div>
+<div class="card">
+      <img src="static/images/tempor/20.png" alt="Tempered Glass Premium">
+      <div class="card-content">
+          <h3>Tempered Glass Premium</h3>
+          <p>9H Hardness | Oleophobic Coating</p>
+          <p class="price">₹399</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Tempered Glass Premium", price:399})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/21.png" alt="Full Edge Tempered Glass">
+      <div class="card-content">
+          <h3>Full Edge Tempered Glass</h3>
+          <p>Edge-to-Edge Coverage | Shock Resistant</p>
+          <p class="price">₹449</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Full Edge Tempered Glass", price:449})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/22.png" alt="Privacy Tempered Glass">
+      <div class="card-content">
+          <h3>Privacy Tempered Glass</h3>
+          <p>Prevents Shoulder Peek | Scratch Proof</p>
+          <p class="price">₹499</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Privacy Tempered Glass", price:499})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/23.png" alt="Blue Light Filter Premium">
+      <div class="card-content">
+          <h3>Blue Light Filter Premium</h3>
+          <p>Protects Eyes | Anti Scratch</p>
+          <p class="price">₹399</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Blue Light Filter Premium", price:399})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/24.png" alt="Hydrogel Premium Protector">
+      <div class="card-content">
+          <h3>Hydrogel Premium Protector</h3>
+          <p>Flexible | Self-Healing</p>
+          <p class="price">₹349</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Hydrogel Premium Protector", price:349})'>Pay Now</button>
+      </div>
+  </div>
+
+
+  <div class="card">
+      <img src="static/images/tempor/25.png" alt="Ultra Clear HD Glass">
+      <div class="card-content">
+          <h3>Ultra Clear HD Glass</h3>
+          <p>HD Clarity | Anti Scratch</p>
+          <p class="price">₹399</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Ultra Clear HD Glass", price:399})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/26.png" alt="Matte Privacy Premium">
+      <div class="card-content">
+          <h3>Matte Privacy Premium</h3>
+          <p>Prevents Shoulder Peek | Anti Fingerprint</p>
+          <p class="price">₹449</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Matte Privacy Premium", price:449})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/tempor/27.png" alt="Tempered Glass Pro">
+      <div class="card-content">
+          <h3>Tempered Glass Pro</h3>
+          <p>Shockproof | Fingerprint Resistant</p>
+          <p class="price">₹499</p>
+          <button onclick='payNow({type:"Screen Protector", model:"Tempered Glass Pro", price:499})'>Pay Now</button>
+      </div>
+  </div>
+
+  
+</div>
+
+<script>
+function payNow(product){
+    var url = "/add_mobile?type=" + encodeURIComponent(product.type) + "&model=" + encodeURIComponent(product.model) + "&price=" + product.price;
+    if (product.quality) {
+        url += "&quality=" + encodeURIComponent(product.quality);
+    }
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>

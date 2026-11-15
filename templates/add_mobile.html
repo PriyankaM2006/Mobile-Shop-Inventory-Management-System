@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mobile Shop | Add Product</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(15,23,42,.75), rgba(15,23,42,.75)),
+        url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9");
+    background-size:cover;
+    background-position:center;
+}
+
+.sidebar{
+    width:230px;
+    min-height:100vh;
+    position:fixed;
+    background:rgba(30,41,59,0.95);
+}
+
+.sidebar h2{
+    text-align:center;
+    color:#fff;
+    padding:24px 0;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li a{
+    display:flex;
+    gap:12px;
+    padding:15px 24px;
+    color:#e5e7eb;
+    text-decoration:none;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+.main{
+    margin-left:230px;
+    padding:40px;
+    color:#fff;
+}
+
+.form-card{
+    max-width:760px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+    padding:35px;
+    border-radius:18px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea,
+select{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+}
+
+textarea{
+    resize:none;
+}
+
+/* Quick Product Selector */
+.quick-selector {
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quick-selector h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.product-item {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #fff;
+}
+
+.product-item:hover {
+    border-color: rgba(139, 92, 246, 0.8);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(139, 92, 246, 0.3);
+}
+
+.product-item i {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #8b5ce6;
+}
+
+.product-item strong {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-item span {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #22c55e;
+}
+
+.tech-fields,
+.memory-fields,
+.wireless-fields,
+.powerbank-fields,
+.charger-fields{
+    display:none;
+}
+
+.btn{
+    padding:12px 24px;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn-save{ 
+    background:#22c55e; 
+    color:#fff; 
+}
+
+.btn-buy{
+    background:#f59e0b;
+    color:#fff;
+    margin-left:10px;
+}
+
+.btn-reset{ 
+    background:#e5e7eb; 
+    margin-left:10px; 
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>📱 Mobile Shop</h2>
+    <ul>
+        <li><a href="/dashboard"><i class="fa fa-list"></i>View All Product</a></li>
+        <li><a href="/add_mobile" class="active"><i class="fa fa-plus"></i>Add Product</a></li>
+        <li><a href="/reports"><i class="fa fa-chart-bar"></i>Reports</a></li>
+        <li><hr style="margin: 10px 0; border: none; border-top: 1px solid rgba(30,41,59,0.3);"></li>
+        <li><a href="/admin/login" style="background: rgba(231,76,60,0.1); color: #ff6b6b;"><i class="fa fa-shield-alt"></i>🔐 Admin Login</a></li>
+        <li><a href="/logout"><i class="fa fa-sign-out-alt"></i>Logout</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <h2>Purchase Product</h2>
+
+    <!-- Quick Product Selector
+    <div class="quick-selector">
+        <h3>Quick Select Products</h3>
+        <div class="product-grid">
+            <div class="product-item" onclick="selectProduct('Smartphone', 'iPhone 14 Pro', 129999)">
+                <i class="fas fa-mobile-alt"></i>
+                <strong>iPhone 14 Pro</strong>
+                <span>₹129,999</span>
+            </div>
+            <div class="product-item" onclick="selectProduct('Smartphone', 'Galaxy S24', 99999)">
+                <i class="fas fa-mobile-alt"></i>
+                <strong>Galaxy S24</strong>
+                <span>₹99,999</span>
+            </div>
+            <div class="product-item" onclick="selectProduct('Charger', 'USB-C Fast Charger', 2999)">
+                <i class="fas fa-bolt"></i>
+                <strong>USB-C Charger</strong>
+                <span>₹2,999</span>
+            </div>
+            <div class="product-item" onclick="selectProduct('Power Bank', 'Power Bank 20000mAh', 1999)">
+                <i class="fas fa-battery-three-quarters"></i>
+                <strong>Power Bank 20K</strong>
+                <span>₹1,999</span>
+            </div>
+            <div class="product-item" onclick="selectProduct('Memory Card', 'MicroSD 256GB', 3500)">
+                <i class="fas fa-sd-card"></i>
+                <strong>MicroSD 256GB</strong>
+                <span>₹3,500</span>
+            </div>
+            <div class="product-item" onclick="selectProduct('Phone Case', 'Premium Case', 599)">
+                <i class="fas fa-shield-alt"></i>
+                <strong>Premium Case</strong>
+                <span>₹599</span>
+            </div>
+            <div class="product-item" onclick="selectProduct('Smartwatch', 'Smartwatch Pro', 12999)">
+                <i class="fas fa-watch"></i>
+                <strong>Smartwatch Pro</strong>
+                <span>₹12,999</span>
+            </div>
+            <div class="product-item" onclick="selectProduct('Wireless Earbuds', 'AirPods Pro', 29999)">
+                <i class="fas fa-headphones"></i>
+                <strong>AirPods Pro</strong>
+                <span>₹29,999</span>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="form-card">
+        <form method="post">
+
+            <div class="form-group">
+                <label>Product Type</label>
+                <select name="product_type" onchange="toggleFields(this.value)" required>
+                    <option value="">Select Product Type</option>
+                    <option value="Smartphone" {% if product.type == "Smartphone" %}selected{% endif %}>Smartphone</option>
+                    <option value="Feature Phone" {% if product.type == "Feature Phone" %}selected{% endif %}>Feature Phone</option>
+                    <option value="Smartwatch" {% if product.type == "Smartwatch" %}selected{% endif %}>Smartwatch</option>
+                    <option value="Wireless Earbuds" {% if product.type == "Wireless Earbuds" %}selected{% endif %}>Wireless Earbuds</option>
+                    <option value="Power Bank" {% if product.type == "Power Bank" %}selected{% endif %}>Power Bank</option>
+                    <!-- <option value="Charger" {% if product.type == "Charger" %}selected{% endif %}>Charger</option> -->
+                    <option value="Charger" {% if product.type == "Charger" %}selected{% endif %}>Charger</option>
+                    <option value="Memory Card" {% if product.type == "Memory Card" %}selected{% endif %}>Memory Card</option>
+                    <option value="Phone Case" {% if product.type == "Phone Case" %}selected{% endif %}>Phone Case</option>
+                    <option value="Screen Protector" {% if product.type == "Screen Protector" %}selected{% endif %}>Screen Protector</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Model / Name</label>
+                <input type="text" name="model" placeholder="eg. Galaxy A15 / SanDisk Ultra" value="{{ product.model }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input type="number" name="price" placeholder="eg. 14999" value="{{ product.price }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" name="quantity" placeholder="eg. 10" value="1" required>
+            </div>
+
+            <!-- Phone fields -->
+            <div class="tech-fields" id="techFields">
+                <div class="form-group">
+                    <label>RAM</label>
+                    <input type="text" name="ram" placeholder="eg. 6 GB" value="{{ product.ram }}">
+                </div>
+
+                <div class="form-group">
+                    <label>ROM</label>
+                    <input type="text" name="rom" placeholder="eg. 128 GB" value="{{ product.rom }}">
+                </div>
+            </div>
+
+            <!-- Memory Card fields -->
+            <div class="memory-fields" id="memoryFields">
+                <div class="form-group">
+                    <label>Capacity</label>
+                    <select name="capacity">
+                        <option value="">Select Capacity</option>
+                        <option value="16 GB" {% if product.capacity == "16 GB" %}selected{% endif %}>16 GB</option>
+                        <option value="32 GB" {% if product.capacity == "32 GB" %}selected{% endif %}>32 GB</option>
+                        <option value="64 GB" {% if product.capacity == "64 GB" %}selected{% endif %}>64 GB</option>
+                        <option value="128 GB" {% if product.capacity == "128 GB" %}selected{% endif %}>128 GB</option>
+                        <option value="256 GB" {% if product.capacity == "256 GB" %}selected{% endif %}>256 GB</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Card Type</label>
+                    <select name="card_type">
+                        <option value="">Select Card Type</option>
+                        <option value="microSD" {% if product.card_type == "microSD" %}selected{% endif %}>microSD</option>
+                        <option value="SD Card" {% if product.card_type == "SD Card" or product.card_type == "SD" %}selected{% endif %}>SD Card</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Speed Class</label>
+                    <select name="speed_class">
+                        <option value="">Select Speed</option>
+                        <option value="Class 10" {% if product.speed_class == "Class 10" %}selected{% endif %}>Class 10</option>
+                        <option value="UHS-I" {% if product.speed_class == "UHS-I" %}selected{% endif %}>UHS-I</option>
+                        <option value="UHS-II" {% if product.speed_class == "UHS-II" %}selected{% endif %}>UHS-II</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Warranty</label>
+                    <input type="text" name="warranty" placeholder="eg. 5 Years" value="{{ product.warranty }}">
+                </div>
+            </div>
+
+            <!-- Wireless Earbuds fields -->
+            <div class="wireless-fields" id="wirelessFields">
+                <div class="form-group">
+                    <label>Charger Hour (Battery)</label>
+                    <input type="text" name="charger_hour" placeholder="eg. 25h" value="{{ product.charger_hour }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Quality</label>
+                    <input type="text" name="quality" placeholder="eg. Bluetooth 5.0" value="{{ product.quality }}">
+                </div>
+            </div>
+
+            <!-- Power Bank fields -->
+            <div class="powerbank-fields" id="powerbankFields">
+                <div class="form-group">
+                    <label>Capacity</label>
+                    <input type="text" name="capacity" placeholder="eg. 10000mAh" value="{{ product.capacity }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Quality</label>
+                    <input type="text" name="quality" placeholder="eg. Fast Charging" value="{{ product.quality }}">
+                </div>
+            </div>
+
+            <!-- Charger fields -->
+            <div class="charger-fields" id="chargerFields">
+                <div class="form-group">
+                    <label>Charger Hour (Wattage)</label>
+                    <input type="text" name="charger_hour" placeholder="eg. 25W" value="{{ product.charger_hour }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Quality</label>
+                    <input type="text" name="quality" placeholder="eg. Fast Charging" value="{{ product.quality }}">
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <button class="btn btn-save" type="submit" name="action" value="save">
+                Save Product
+            </button>
+
+            <button class="btn btn-buy" type="submit" name="action" value="buy">
+                Buy Now
+            </button>
+
+            <button class="btn btn-reset" type="reset">
+                Clear
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+function toggleFields(type){
+    const tech = document.getElementById("techFields");
+    const memory = document.getElementById("memoryFields");
+    const wireless = document.getElementById("wirelessFields");
+    const powerbank = document.getElementById("powerbankFields");
+    const charger = document.getElementById("chargerFields");
+
+    tech.style.display = "none";
+    memory.style.display = "none";
+    wireless.style.display = "none";
+    powerbank.style.display = "none";
+    charger.style.display = "none";
+
+    if(type === "Smartphone" || type === "Feature Phone" || type === "Smartwatch"){
+        tech.style.display = "block";
+    }
+
+    if(type === "Memory Card"){
+        memory.style.display = "block";
+    }
+
+    if(type === "Wireless Earbuds"){
+        wireless.style.display = "block";
+    }
+
+    if(type === "Power Bank"){
+        powerbank.style.display = "block";
+    }
+
+    if(type === "Charger"){
+        charger.style.display = "block";
+    }
+}
+
+function selectProduct(type, model, price) {
+    // Set the product type
+    document.querySelector('select[name="product_type"]').value = type;
+    
+    // Set the model name
+    document.querySelector('input[name="model"]').value = model;
+    
+    // Set the price
+    document.querySelector('input[name="price"]').value = price;
+    
+    // Show/hide relevant fields based on product type
+    toggleFields(type);
+    
+    // Scroll to form
+    document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth' });
+    
+    // Focus on quantity field
+    document.querySelector('input[name="quantity"]').focus();
+}
+
+function goToSearchPage(){
+    window.location.href = "/userdetails";
+}
+
+
+
+// Populate form if a product was selected
+window.onload = function () {
+    {% if product.type %}
+    toggleFields("{{ product.type }}");
+    {% endif %}
+};
+</script>
+
+<!-- Recent Customers Section -->
+<!-- <div style="margin-left: 230px; padding: 20px;">
+    <div style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #333; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa fa-users"></i> Recent Customer Orders
+        </h3>
+        
+        {% if customers %}
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: #2563eb; color: #fff;">
+                            <th style="padding: 12px; text-align: left;">Order ID</th>
+                            <th style="padding: 12px; text-align: left;">Customer</th>
+                            <th style="padding: 12px; text-align: left;">Product</th>
+                            <th style="padding: 12px; text-align: left;">Amount</th>
+                            <th style="padding: 12px; text-align: left;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for customer in customers[-5:] %}
+                        <tr style="border-bottom: 1px solid #e5e7eb;">
+                            <td style="padding: 12px;"><strong>{{ customer.id }}</strong></td>
+                            <td style="padding: 12px;">{{ customer.name }}</td>
+                            <td style="padding: 12px;">{{ customer.product }}</td>
+                            <td style="padding: 12px;">₹{{ customer.amount }}</td>
+                            <td style="padding: 12px;">
+                                <span style="display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+                                    {% if customer.status == 'Pending' %}
+                                    background: #fcd34d; color: #78350f;
+                                    {% elif customer.status == 'Completed' %}
+                                    background: #86efac; color: #15803d;
+                                    {% else %}
+                                    background: #fca5a5; color: #7f1d1d;
+                                    {% endif %}
+                                ">
+                                    {{ customer.status }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="margin-top: 15px;">
+                <a href="/admin/customers" style="background: #2563eb; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: 0.3s;">
+                    <i class="fa fa-list"></i> View All Customers
+                </a>
+            </div>
+        {% else %}
+            <div style="text-align: center; padding: 40px; color: #9ca3af;">
+                <i class="fa fa-inbox" style="font-size: 48px; margin-bottom: 10px;"></i>
+                <p>No customers yet. Orders will appear here.</p>
+            </div>
+        {% endif %}
+    </div>
+</div> -->
+
+</body>
+</html>

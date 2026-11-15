@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phone Cases Under ₹200</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #1e293b;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 10px;
+}
+.card-content h3 {
+    font-size: 15px;
+    color: #111827;
+    margin: 8px 0;
+}
+.card-content p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #334155;
+}
+.price {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2563eb;
+}
+button {
+  margin-top: 8px;
+  padding: 8px 18px;
+  background-color: #1b6be0;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1454b8;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Phone Cases </h1>
+
+<div class="grid">  
+    <div class="card">
+  <img src="static/images/case/1.png" alt="iPhone 14 Pro">
+  <div class="model">Achromatic - iPhone 14 Pro Case</div>
+  <div class="price">₹150</div>
+<button onclick='payNow({type:"Phone Case", model:"Achromatic - iPhone 14 Pro Case", price:150})'>Pay Now</button>
+</div>
+
+
+<div class="card">
+  <img src="static/images/case/2.png" alt="Galaxy Z Fold 4">
+  <div class="model">Galaxy Z Fold 4</div>
+  <div class="brand">Samsung case </div>
+  <div class="price">₹200</div>
+  <button onclick='payNow({type:"Phone Case", model:"Galaxy Z Fold 4 Case", price:200})'>Pay Now</button>
+</div>
+
+<!-- <div class="card">
+<img src="https://m.media-amazon.com/images/I/71r7h6nTt9L._SX679_.jpg" alt="Pixel 7 Pro">
+  <div class="model">Pixel 7 Pro</div>
+  <div class="brand">Google</div>
+  <div class="info">RAM: 12GB | ROM: 256GB</div>
+  <div class="price">₹89,999</div>
+  <div class="stars">★★★★☆</div>
+</div> -->
+
+    <div class="card">
+<img src="static/images/case/3.png" alt="Galaxy S21 Ultra">
+      <div class="model">Galaxy S21 Ultra</div>
+      <div class="brand">Samsung case </div>
+      <div class="price">₹250</div>
+      <button onclick='payNow({type:"Phone Case", model:"OnePlus 10 Pro Case", price:2969})'>Pay Now</button>
+    </div>
+    <!-- <div class="card">
+     <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-11-ultra-1.jpg" alt="Mi 11 Ultra">
+      <div class="model">Mi 11 Ultra</div>
+      <div class="brand">Xiaomi</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹84,999</div>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="card">
+      <img src="https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-1-iii-1.jpg" alt="Sony Xperia 1 III">
+      <div class="model">Xperia 1 III</div>
+      <div class="brand">Sony</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹1,29,999</div>
+      <div class="stars">★★★★☆</div>
+    </div> -->
+    <div class="card">
+      <img src="static/images/case/4.png" alt="Oppo Find X3 Pro">
+
+      <div class="model">Find X3 Pro</div>
+      <div class="brand">Oppo case </div>
+      <div class="price">₹400</div>
+      <button onclick='payNow({type:"Phone Case", model:"Oppo Find X3 Pro Case", price:400})'>Pay Now</button>
+    </div>
+    <div class="card">
+      <img src="static/images/case/5.png" alt="Realme GT Neo 2">
+      <div class="model">Wallet Book Flip Stand View Magnetic Protect Shockproof Cover </div>
+      <div class="price">₹199</div>
+      <button onclick='payNow({type:"Phone Case", model:"Realme GT Neo 2 Wallet Case", price:199})'>Pay Now</button>
+    </div>
+    <div class="card">
+      <img src="static/images/case/6.png" alt="Vivo X70 Pro Plus">
+      <div class="model">Oncraves Soft Silicon Hight Quality Material Premium Transparent Back Cover</div>
+      <div class="price">₹699</div>
+      <button onclick='payNow({type:"Phone Case", model:"Vivo X70 Pro Plus Soft Silicon Case", price:699})'>Pay Now</button>
+    </div>
+    <!-- <div class="card">
+  <img src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-fold4-1.jpg" alt="Galaxy Z Fold 4">
+  <div class="model">Galaxy Z Fold 4</div>
+  <div class="brand">Samsung</div>
+  <div class="info">RAM: 12GB | ROM: 512GB</div>
+  <div class="price">₹1,49,999</div>
+  <div class="stars">★★★★★</div>
+</div> -->
+
+<div class="card">
+  <img src="static/images/case/7.png" alt="iPhone 14 Pro">
+
+  <div class="model">Apple iPhone 14 Pro Clear Case With Magsafe</div>
+  <div class="price">₹4,900</div>
+  <button onclick='payNow({type:"Phone Case", model:"iPhone 14 Pro Clear Case with MagSafe", price:4900})'>Pay Now</button>
+</div>
+
+<!-- <div class="card">
+  <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-7-pro-1.jpg" alt="Pixel 7 Pro">
+  <div class="model">Pixel 7 Pro</div>
+  <div class="brand">Google</div>
+  <div class="info">RAM: 12GB | ROM: 256GB</div>
+  <div class="price">₹89,999</div>
+  <div class="stars">★★★★☆</div>
+</div> -->
+
+<div class="card">
+<img src="static/images/case/8.png" alt="OnePlus 11">
+
+  <div class="model">OnePlus 11</div>
+  <div class="brand">OnePlus case</div>
+  <div class="price">₹2,861</div>
+  <button onclick='payNow({type:"Phone Case", model:"OnePlus 11 Case", price:2861})'>Pay Now</button>
+</div>
+
+<!-- <div class="card">
+  <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-12-pro-1.jpg" alt="Xiaomi 12 Pro">
+
+  <div class="model">Xiaomi 12 Pro</div>
+  <div class="brand">Xiaomi</div>
+  <div class="info">RAM: 12GB | ROM: 256GB</div>
+  <div class="price">₹62,999</div>
+  <div class="stars">★★★★☆</div>
+</div> -->
+
+<div class="card">
+  <img src="static/images/case/9.png" alt="Oppo Reno 8 Pro">
+
+  <div class="model">Reno 8 Pro</div>
+  <div class="brand">Oppo case</div>
+  <div class="price">₹2,075</div>
+  <button onclick='payNow({type:"Phone Case", model:"Oppo Reno 8 Pro Case", price:2075})'>Pay Now</button>
+</div>
+
+<div class="card">
+  <img src="static/images/case/10.png" alt="Realme GT 2 Pro">
+  <div class="model">GT 2 Pro</div>
+  <div class="brand">Realme case </div>
+  <div class="price">₹49,999</div>
+
+  <button onclick='payNow({type:"Phone Case", model:"Realme GT 2 Pro Case", price:49999})'>Pay Now</button>
+</div>
+
+<div class="card">
+  <img src="static/images/case/11.png" alt="Vivo X80 Pro">
+  <div class="model">X80 Pro</div>
+  <div class="brand">Vivo case </div>
+
+  <div class="price">₹79,999</div>
+
+  <button onclick='payNow({type:"Phone Case", model:"Vivo X80 Pro Case", price:79999})'>Pay Now</button>
+</div>
+
+<!-- <div class="card">
+  <img src="https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-5-iv-1.jpg" alt="Sony Xperia 5 IV">
+
+  <div class="model">Xperia 5 IV</div>
+  <div class="brand">Sony</div>
+  <div class="info">RAM: 8GB | ROM: 128GB</div>
+  <div class="price">₹89,999</div>
+  <div class="stars">★★★★☆</div>
+</div> -->
+
+<div class="card">
+  <img src="static/images/case/12.png" alt="Huawei Mate 50 Pro">
+
+  <div class="model">Mate 50 Pro</div>
+  <div class="brand">Huawei case </div>
+
+  <div class="price">₹2,949</div>
+
+  <button onclick='payNow({type:"Phone Case", model:"Huawei Mate 50 Pro Case", price:2949})'>Pay Now</button>
+</div>
+<div class="card">
+  <img src="static/images/case/13.png" alt="iPhone 13 Pro Max">
+
+  <div class="model">iPhone 13 Pro Max</div>
+  <div class="brand">Apple case </div>
+  <div class="price">₹1,09,999</div>
+  <button onclick='payNow({type:"Phone Case", model:"iPhone 13 Pro Max Case", price:109999})'>Pay Now</button>
+</div>
+
+  <div class="card">
+      <img src="static/images/case/14.png" alt="Basic TPU Case Black">
+      <div class="card-content">
+          <h3>Basic TPU Case (Black)</h3>
+          <p>Soft TPU | Scratch Proof</p>
+          <p class="price">₹4,104</p>
+          <button onclick='payNow({type:"Phone Case", model:"Slim Clear Case", price:2000})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/15.png" alt="Soft Gel Case">
+      <div class="card-content">
+          <h3>Soft Gel Case</h3>
+          <p>Flexible | Shock Absorbent</p>
+          <p class="price">₹400</p>
+          <button onclick='payNow({type:"Phone Case", model:"Soft Gel Case", price:350})'>Pay Now</button>
+      </div>
+  </div>
+
+  <!-- <div class="card">
+      <img src="data:image/webp;base64,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" alt="Matte Case">
+      <div class="card-content">
+          <h3>Matte Case</h3>
+          <p>Anti Fingerprint | Grip</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Phone Case", model:"Basic Black Cover", price:150})'>Pay Now</button>
+      </div>
+  </div> -->
+
+  <div class="card">
+      <img src="static/images/case/16.png" alt="Pattern Case">
+      <div class="card-content">
+          <h3>Pattern Print Case</h3>
+          <p>Design Print | Slim</p>
+          <p class="price">₹189</p>
+          <button onclick='payNow({type:"Phone Case", model:"Pattern Print Case", price:189})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/17.png" alt="Colored Soft Case">
+      <div class="card-content">
+          <h3>Colored Soft Case</h3>
+          <p>Soft Colour | Lightweight</p>
+          <p class="price">₹179</p>
+          <button onclick='payNow({type:"Phone Case", model:"Colored Soft Case", price:179})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/18.png" alt="Basic Black Cover">
+      <div class="card-content">
+          <h3>Basic Black Cover</h3>
+          <p>Sleek | Simple</p>
+          <p class="price">₹150</p>
+          <button onclick='payNow({type:"Phone Case", model:"Basic Black Cover", price:150})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/19.png" alt="Full Back Case">
+      <div class="card-content">
+          <h3>Full Back Case</h3>
+          <p>Rear Protection | Thin</p>
+          <p class="price">₹190</p>
+          <button onclick='payNow({type:"Phone Case", model:"Full Back Case", price:190})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/20.png" alt="TPU Matte Case">
+      <div class="card-content">
+          <h3>TPU Matte Case</h3>
+          <p>Matte Finish | Light</p>
+          <p class="price">₹179</p>
+          <button onclick='payNow({type:"Phone Case", model:"TPU Matte Case", price:179})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/21.png" alt="Glossy Case">
+      <div class="card-content">
+          <h3>Glossy Back Case</h3>
+          <p>Shiny | Slim</p>
+          <p class="price">₹195</p>
+          <button onclick='payNow({type:"Phone Case", model:"Glossy Back Case", price:195})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/22.png" alt="Silicone Colour Case">
+      <div class="card-content">
+          <h3>Silicone Colour Case</h3>
+          <p>Soft Grip | Colourful</p>
+          <p class="price">₹189</p>
+          <button onclick='payNow({type:"Phone Case", model:"Silicone Colour Case", price:189})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/23.png" alt="Anti Scratch Case">
+      <div class="card-content">
+          <h3>Anti Scratch Case</h3>
+          <p>Protective | TPU</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Phone Case", model:"Anti Scratch Case", price:199})'>Pay Now</button>
+      </div>
+  </div>
+  <div class="card">
+      <img src="static/images/case/24.png" alt="Basic TPU Case Black">
+      <div class="card-content">
+          <h3>Basic TPU Case (Black)</h3>
+          <p>Soft TPU | Scratch Proof</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Phone Case", model:"Basic TPU Case (Black)", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/25.png" alt="Slim Clear Case">
+      <div class="card-content">
+          <h3>Slim Clear Case</h3>
+          <p>Transparent | Lightweight</p>
+          <p class="price">₹179</p>
+          <button onclick='payNow({type:"Phone Case", model:"Slim Clear Case", price:179})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/26.png" alt="Soft Gel Case">
+      <div class="card-content">
+          <h3>Soft Gel Case</h3>
+          <p>Flexible | Shock Absorbent</p>
+          <p class="price">₹189</p>
+          <button onclick='payNow({type:"Phone Case", model:"Soft Gel Case", price:189})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/27.png" alt="Matte Case">
+      <div class="card-content">
+          <h3>Matte Case</h3>
+          <p>Anti Fingerprint | Grip</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Phone Case", model:"Matte Case", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/28.png" alt="Pattern Case">
+      <div class="card-content">
+          <h3>Pattern Print Case</h3>
+          <p>Design Print | Slim</p>
+          <p class="price">₹189</p>
+          <button onclick='payNow({type:"Phone Case", model:"Pattern Print Case", price:189})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/29.png" alt="Soft Silicone Case">
+      <div class="card-content">
+          <h3>Soft Silicone Case</h3>
+          <p>Soft | Flexible</p>
+          <p class="price">₹199</p>
+          <button onclick='payNow({type:"Phone Case", model:"Soft Silicone Case", price:199})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/case/30.png" alt="Transparent TPU Case">
+      <div class="card-content">
+          <h3>Transparent TPU Case</h3>
+          <p>Clear | Scratch Resistant</p>
+          <p class="price">₹180</p>
+          <button onclick='payNow({type:"Phone Case", model:"Transparent TPU Case", price:180})'>Pay Now</button>
+      </div>
+  </div>
+</div>
+<script>
+function payNow(product){
+    var url = "/add_mobile?type=" + encodeURIComponent(product.type) + "&model=" + encodeURIComponent(product.model) + "&price=" + product.price;
+    if (product.quality) {
+        url += "&quality=" + encodeURIComponent(product.quality);
+    }
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Low Price Wireless Earbuds</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #1e293b;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 15px;
+}
+.card-content h3 {
+    margin: 10px 0 5px 0;
+    color: #1e293b;
+    font-size: 16px;
+}
+.card-content p {
+    margin: 4px 0;
+    color: #334155;
+    font-size: 14px;
+}
+.price {
+    font-weight: bold;
+    color: #2563eb;
+    font-size: 16px;
+    margin-top: 8px;
+}
+    button {
+  margin-top: 8px;
+  padding: 8px 18px;
+  background-color: #1b6be0;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1454b8;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Low Price Wireless Earbuds</h1>
+
+<div class="grid">
+
+<!-- Earbud 1 -->
+<div class="card">
+    <img src="static/images/buds/1.png" alt="boAt Airdopes 441">
+
+    <div class="card-content">
+        <h3>boAt Airdopes 441</h3>
+        <p>Battery: 25h | Connectivity: Bluetooth 5.0</p>
+        <p class="price">₹1,499</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"boAt Airdopes 441", charger_hour:"25h", price:1499, quality:"Bluetooth 5.0"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Earbud 2 -->
+<div class="card">
+    <img src="static/images/buds/2.png" alt="Realme Buds Q2">
+    <div class="card-content">
+        <h3>Realme Buds Q2</h3>
+        <p>Battery: 20h | Noise Cancellation</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Realme Buds Q2", charger_hour:"20h", price:1299, quality:"Noise Cancellation"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Earbud 3 -->
+<div class="card">
+    <img src="static/images/buds/3.png" alt="Noise Air Buds">
+    <div class="card-content">
+        <h3>Noise Air Buds</h3>
+        <p>Battery: 18h | IPX5 Water Resistant</p>
+        <p class="price">₹964</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Noise Air Buds", charger_hour:"18h", price:964, quality:"IPX5 Water Resistant"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Earbud 4 -->
+<div class="card">
+    <img src="static/images/buds/4.png" alt="Redmi Earbuds 3C">
+    <div class="card-content">
+        <h3>Redmi Earbuds 3C</h3>
+        <p>Battery: 20h | Lightweight</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Redmi Earbuds 3C", charger_hour:"20h", price:1299, quality:"Lightweight"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Earbud 5 -->
+<div class="card">
+    <img src="static/images/buds/5.png" alt="pTron Bassbuds">
+    <div class="card-content">
+        <h3>pTron Bassbuds</h3>
+        <p>Battery: 15h | Bluetooth 5.0</p>
+        <p class="price">₹799</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"pTron Bassbuds", charger_hour:"15h", price:799, quality:"Bluetooth 5.0"})'>Pay Now</button>
+    </div>
+</div>
+<div class="card">
+    <img src="static/images/buds/6.png" alt="boAt Airdopes 441">
+    <div class="card-content">
+        <h3>boAt Airdopes 441</h3>
+        <p>BT Calling, 25h Playtime</p>
+        <p class="price">₹1,499</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"boAt Airdopes 441", charger_hour:"25h", price:1499, quality:"BT Calling"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/7.png" alt="Realme Buds Q2">
+    <div class="card-content">
+        <h3>Realme Buds Q2</h3>
+        <p>ANC, 20h Battery</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Realme Buds Q2", charger_hour:"20h", price:1299, quality:"ANC"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/8.png" alt="Noise Air Buds">
+    <div class="card-content">
+        <h3>Noise Air Buds</h3>
+        <p>IPX5, 18h Playtime</p>
+        <p class="price">₹964</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Noise Air Buds", charger_hour:"18h", price:964, quality:"IPX5"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/9.png" alt="Redmi Earbuds 3C">
+    <div class="card-content">
+        <h3>Redmi Earbuds 3C</h3>
+        <p>20h Battery, Light</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Redmi Earbuds 3C", charger_hour:"20h", price:1299, quality:"Light"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/10.png" alt="pTron Bassbuds">
+    <div class="card-content">
+        <h3>pTron Bassbuds</h3>
+        <p>BT 5.0, 15h Playtime</p>
+        <p class="price">₹799</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"pTron Bassbuds", charger_hour:"15h", price:799, quality:"BT 5.0"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/11.png" alt="Zebronics Zeb Tune">
+    <div class="card-content">
+        <h3>Zebronics Zeb Tune</h3>
+        <p>BT Calling, Box Mic</p>
+        <p class="price">₹1,199</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Zebronics Zeb Tune", charger_hour:"20h", price:1199, quality:"BT Calling, Box Mic"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/12.png" alt="CrossBeats Pro">
+    <div class="card-content">
+        <h3>CrossBeats Pro</h3>
+        <p>Dual Mic, 24h Play</p>
+        <p class="price">₹1,899</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"CrossBeats Pro", charger_hour:"24h", price:1899, quality:"Dual Mic"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/13.png" alt="Lenovo XT90">
+    <div class="card-content">
+        <h3>Lenovo XT90</h3>
+        <p>BT 5.2, Deep Bass</p>
+        <p class="price">₹1,099</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Lenovo XT90", charger_hour:"20h", price:1099, quality:"BT 5.2, Deep Bass"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/14.png" alt="Inbase Arc Pods">
+    <div class="card-content">
+        <h3>Inbase Arc Pods</h3>
+        <p>Good Bass, 18h</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Inbase Arc Pods", charger_hour:"18h", price:1299, quality:"Good Bass"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- <div class="https://www.bing.com/th/id/OIP.Yc3nqFFZiYrS36k-TXS_cgAAAA?w=195&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Oraimo PowerBuds">
+    <div class="card-content">
+        <h3>Oraimo PowerBuds</h3>
+        <p>BT 5.3, HD Sound</p>
+        <p class="price">₹1,899</p>
+    </div>
+</div> -->
+
+<div class="card">
+    <img src="static/images/buds/15.png" alt="pTron Play Pods">
+    <div class="card-content">
+        <h3>pTron Play Pods</h3>
+        <p>Lightweight, 12h</p>
+        <p class="price">₹899</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"pTron Play Pods", charger_hour:"12h", price:899, quality:"Lightweight"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/16.png" alt="boAt Airdopes 131">
+    <div class="card-content">
+        <h3>boAt Airdopes 131</h3>
+        <p>BT 5.0, Bass Boost</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"boAt Airdopes 131", charger_hour:"20h", price:1299, quality:"BT 5.0, Bass Boost"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/17.png" alt="Lenovo QT81">
+    <div class="card-content">
+        <h3>Lenovo QT81</h3>
+        <p>Touch Control, 20h</p>
+        <p class="price">₹1,399</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Lenovo QT81", charger_hour:"20h", price:1399, quality:"Touch Control"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/18.png" alt="boAt Airdopes 131 Pro">
+    <div class="card-content">
+        <h3>boAt Airdopes 131 Pro</h3>
+        <p>Dual EQ, 24h</p>
+        <p class="price">₹1,799</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"boAt Airdopes 131 Pro", charger_hour:"24h", price:1799, quality:"Dual EQ"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/19.png" alt="Mivi Play Pods">
+    <div class="card-content">
+        <h3>Mivi Play Pods</h3>
+        <p>Real Bass, 18h</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Mivi Play Pods", charger_hour:"18h", price:1299, quality:"Real Bass"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/20.png" alt="JBL Wave 100 TWS">
+    <div class="card-content">
+        <h3>JBL Wave 100 TWS</h3>
+        <p>JBL Signature Sound</p>
+        <p class="price">₹1,999</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"JBL Wave 100 TWS", charger_hour:"20h", price:1999, quality:"JBL Signature Sound"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/21.png" alt="Zebronics AirBuds 22">
+    <div class="card-content">
+        <h3>Zebronics AirBuds 22</h3>
+        <p>BT 5.1, TWS</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Zebronics AirBuds 22", charger_hour:"20h", price:1299, quality:"BT 5.1, TWS"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/buds/22.png" alt="Syska True Buds">
+    <div class="card-content">
+        <h3>Syska True Buds</h3>
+        <p>HD Sound, 18h</p>
+        <p class="price">₹1,599</p>
+        <button onclick='payNow({type:"Wireless Earbuds", model:"Syska True Buds", charger_hour:"18h", price:1599, quality:"HD Sound"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Add more earbuds using the same card structure -->
+
+</div>
+
+<script>
+function payNow(product){
+  window.location.href = "/add_mobile?type=" + encodeURIComponent(product.type) + "&model=" + encodeURIComponent(product.model) + "&price=" + product.price + "&charger_hour=" + encodeURIComponent(product.charger_hour) + "&quality=" + encodeURIComponent(product.quality);
+}
+</script>
+
+</body>
+</html>

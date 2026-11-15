@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Feedback Submitted | Mobile Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+/* ===== COLOR VARIABLES ===== */
+:root {
+    --bg-dark: #020617;          /* page dark background */
+    --bg-mid: #0f172a;           /* gradient middle */
+    --primary: #38bdf8;          /* main buttons + particles */
+    --secondary: #22c55e;        /* success circle */
+    --text-main: #0f172a;        /* heading */
+    --text-soft: #475569;        /* paragraph */
+    --card-bg: rgba(255,255,255,0.95); /* card background */
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-mid), var(--bg-dark));
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== BACKGROUND PARTICLES ===== */
+.particles span {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: floatUp 12s linear infinite;
+}
+
+.particles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particles span:nth-child(2) { left: 30%; animation-delay: 3s; background: var(--secondary); }
+.particles span:nth-child(3) { left: 50%; animation-delay: 6s; }
+.particles span:nth-child(4) { left: 70%; animation-delay: 2s; background: var(--secondary); }
+.particles span:nth-child(5) { left: 90%; animation-delay: 5s; }
+
+@keyframes floatUp {
+    0% { bottom: -20px; opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; }
+    100% { bottom: 110%; opacity: 0; transform: scale(1.2); }
+}
+
+/* ===== CARD ===== */
+.card {
+    background: var(--card-bg);
+    padding: 45px 35px;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    animation: fadeSlide 0.8s ease;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes fadeSlide {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== SUCCESS CHECK ===== */
+.check-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary), #4ade80);
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.check-wrap i {
+    font-size: 42px;
+    color: white;
+}
+
+/* ===== TEXT ===== */
+h2 {
+    font-size: 26px;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* ===== BUTTONS ===== */
+.actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-home {
+    background: linear-gradient(135deg, var(--primary), #0ea5e9);
+    color: white;
+}
+
+.btn-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(56,189,248,0.5);
+}
+
+.btn-view {
+    background: #f1f5f9;
+    color: var(--text-main);
+}
+
+.btn-view:hover {
+    background: #e2e8f0;
+}
+</style>
+</head>
+<body>
+
+<!-- Animated particles -->
+<div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="card">
+    <div class="check-wrap">
+        <i class="fas fa-check"></i>
+    </div>
+
+    <h2>Feedback Submitted</h2>
+    <p>
+        Your feedback has been received and saved.
+        Thank you for helping us improve your mobile shopping experience.
+    </p>
+
+    <div class="actions">
+        <a href="/my_purchases" class="btn btn-home">Back to Purchases</a>
+        <a href="/view_feedback?order_id={{ request.args.get('order_id','') }}" class="btn btn-view">View Feedback</a>
+    </div>
+</div>
+
+</body>
+</html>

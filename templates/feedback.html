@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Confirmed | Mobile Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1b1f3b, #0a0c1b);
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.particles span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #20c997;
+    border-radius: 50%;
+    animation: float 12s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh) scale(1); }
+    to { transform: translateY(-10vh) scale(0.5); }
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    animation: slideUp 1s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.header {
+    background: linear-gradient(135deg, #0d6efd, #6610f2, #20c997);
+    color: white;
+    padding: 45px 30px;
+    text-align: center;
+}
+
+.header i {
+    font-size: 70px;
+    margin-bottom: 10px;
+    animation: pop 1.5s infinite;
+}
+
+@keyframes pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25) rotate(5deg); }
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.section {
+    padding: 30px;
+    color: white;
+}
+
+.tracker {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: -50%;
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+}
+
+.step.active:not(:last-child)::after {
+    background: linear-gradient(90deg, #20c997, #0d6efd);
+}
+
+.step span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    color: white;
+    z-index: 1;
+    position: relative;
+}
+
+.step.active span {
+    background: linear-gradient(135deg, #20c997, #0d6efd);
+    transform: scale(1.15);
+}
+
+.step p {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.order-box {
+    background: rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.order-box:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 3px solid #20c997;
+}
+
+.details div {
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 40px;
+    color: #666;
+    cursor: pointer;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #ffc107;
+    transform: scale(1.3);
+}
+
+textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    resize: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+textarea::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #20c997, #0d6efd);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 15px 40px rgba(32,201,151,0.6);
+    transform: translateY(-3px);
+}
+
+#imageGallery img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 8px 8px 0 0;
+    border: 2px solid #20c997;
+}
+
+.flash {
+    margin-bottom: 15px;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #20c997, #0d6efd);
+    color: white;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="particles">
+    <span style="left:10%; animation-delay:0s;"></span>
+    <span style="left:25%; animation-delay:2s;"></span>
+    <span style="left:40%; animation-delay:4s;"></span>
+    <span style="left:60%; animation-delay:1s;"></span>
+    <span style="left:75%; animation-delay:3s;"></span>
+    <span style="left:90%; animation-delay:5s;"></span>
+</div>
+
+<div class="container">
+
+    <div class="header">
+        <i class="fa-solid fa-circle-check"></i>
+        <h1>Order Confirmed</h1>
+        <p>Your Order is on the way. Track it and share your experience below.</p>
+    </div>
+
+    <!-- <div class="section">
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">{{ messages[0] }}</div>
+        {% endif %}
+        {% endwith %}
+
+        <div class="tracker">
+            <div class="step active">
+                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <p>Ordered</p>
+            </div>
+            <div class="step active">
+                <span><i class="fa-solid fa-box"></i></span>
+                <p>Packed</p>
+            </div>
+            <div class="step active">
+                <span><i class="fa-solid fa-truck"></i></span>
+                <p>Shipped</p>
+            </div>
+            <div class="step">
+                <span><i class="fa-solid fa-house"></i></span>
+                <p>Delivered</p>
+            </div>
+        </div> -->
+
+        <!-- <h2>Order Summary</h2>
+        <div class="order-box">
+            <div class="product">
+                <img src="{{ url_for('static', filename='product.png') }}" alt="Product">
+                <div class="details">
+                    <div><strong>Samsung Galaxy A14</strong></div>
+                    <div>64GB | Black</div>
+                    <div>Order ID: #MOB12345</div>
+                    <div>Payment: Cash on Delivery</div>
+                </div>
+            </div>
+            <div class="price">₹14,999</div>
+        </div>
+    </div> -->
+
+    <div class="section">
+        <h2>Share Your Experience</h2>
+        
+        {% if order_id %}
+        <div style="background: rgba(32,201,151,0.2); border-left: 4px solid #20c997; padding: 12px; border-radius: 6px; margin-bottom: 20px; color: white;">
+            <strong>Order ID:</strong> {{ order_id }}
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('submit_feedback') }}" method="POST" enctype="multipart/form-data">
+            
+            <!-- Hidden order_id field -->
+            <input type="hidden" name="order_id" value="{{ order_id or '' }}">
+
+            <!-- <input type="text" name="name" placeholder="Your Name (optional)" style="width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 15px; background: rgba(255,255,255,0.15); color: white;"> -->
+
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" required>
+                <label for="star5">★</label>
+
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4">★</label>
+
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3">★</label>
+
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2">★</label>
+
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1">★</label>
+            </div>
+
+            <textarea name="comment" placeholder="Tell us what you liked or what we can improve..." required></textarea>
+
+            <label>Upload images (optional)</label>
+            <input type="file" name="images" multiple accept="image/*" onchange="previewImages(event)">
+
+            <div id="imageGallery"></div>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+function previewImages(event) {
+    const gallery = document.getElementById("imageGallery");
+    gallery.innerHTML = "";
+    Array.from(event.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = e => {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            gallery.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    });
+}
+</script>
+
+</body>
+</html>

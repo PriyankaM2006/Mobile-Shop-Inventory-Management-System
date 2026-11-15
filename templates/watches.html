@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Low Price Smartwatches</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #1e293b;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 15px;
+}
+.card-content h3 {
+    margin: 10px 0 5px 0;
+    color: #1e293b;
+    font-size: 16px;
+}
+.card-content p {
+    margin: 4px 0;
+    color: #334155;
+    font-size: 14px;
+}
+.price {
+    font-weight: bold;
+    color: #2563eb;
+    font-size: 16px;
+    margin-top: 8px;
+}
+ button {
+  margin-top: 8px;
+  padding: 8px 18px;
+  background-color: #1b6be0;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1454b8;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Low Price Smartwatches</h1>
+
+<div class="grid">
+
+<!-- Repeat this card structure for 30+ watches -->
+<div class="card">
+    <img src="static/images/watches/1.png" alt="Amazfit Bip U">
+    <div class="card-content">
+        <h3>Amazfit Bip U</h3>
+        <p>RAM: 256 MB</p>
+        <p>ROM: 4 GB</p>
+        <p class="price">₹4999</p>
+        <button onclick='payNow({type:"Smartwatch", model:"Amazfit Bip U", ram:"256 MB", rom:"4 GB", price:4999})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/watches/2.png" alt="Amazfit Bip U">
+    <div class="card-content">
+        <h3>Noise ColorFit Pro 4</h3>
+        <p>RAM: 256 MB</p>
+        <p>ROM: 4 GB</p>
+        <p class="price">₹3499</p>
+        <button onclick='payNow({type:"Smartwatch", model:"Noise ColorFit Pro 4", ram:"256 MB", rom:"4 GB", price:3499})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/watches/3.png" alt="Realme Watch 3">
+    <div class="card-content">
+        <h3>Realme Watch 3</h3>
+        <p>RAM: 512 MB</p>
+        <p>ROM: 4 GB</p>
+        <p class="price">₹3999</p>
+        <button onclick='payNow({type:"Smartwatch", model:"Realme Watch 3", ram:"512 MB", rom:"4 GB", price:3999})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/watches/4.png" alt="Fire-Boltt Ninja 3">
+    <div class="card-content">
+        <h3>Fire-Boltt Ninja 3</h3>
+        <p>RAM: 256 MB</p>
+        <p>ROM: 2 GB</p>
+        <p class="price">₹2999</p>
+        <button onclick='payNow({type:"Smartwatch", model:"Fire-Boltt Ninja 3", ram:"256 MB", rom:"2 GB", price:2999})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/watches/5.png" alt="boAt Xtend">
+    <div class="card-content">
+        <h3>boAt Xtend</h3>
+        <p>RAM: 256 MB</p>
+        <p>ROM: 4 GB</p>
+        <p class="price">₹3499</p>
+        <button onclick='payNow({type:"Smartwatch", model:"boAt Xtend", ram:"256 MB", rom:"4 GB", price:3499})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/watches/6.png" alt="Zebronics Zeb-Fit">
+    <div class="card-content">
+        <h3>Zebronics Zeb-Fit</h3>
+        <p>RAM: 256 MB</p>
+        <p>ROM: 2 GB</p>
+        <p class="price">₹2599</p>
+         <button onclick='payNow({type:"Smartwatch", model:"Zebronics Zeb-Fit", ram:"256 MB", rom:"2 GB", price:2599})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/watches/7.png" alt="Gionee Watch 4">
+    <div class="card-content">
+        <h3>Gionee Watch 4</h3>
+        <p>RAM: 256 MB</p>
+        <p>ROM: 4 GB</p>
+        <p class="price">₹2799</p>
+         <button onclick='payNow({type:"Smartwatch", model:"Gionee Watch 4", ram:"256 MB", rom:"4 GB", price:2799})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/watches/8.png" alt="Amazfit Bip U">
+
+    <div class="card-content">
+        <h3>Amazfit GTR 4</h3>
+        <p>RAM: 512 MB | ROM: 4 GB</p>
+        <p class="price">₹11,999</p>
+         <button onclick='payNow({type:"Smartwatch", model:"Amazfit GTR 4", ram:"512 MB", rom:"4 GB", price:11999})'>Pay Now</button>
+    </div>
+</div>
+  
+
+    <div class="card">
+        <img src="static/images/watches/9.png" alt="Noise ColorFit Pro 4 Alpha">
+        <div class="card-content">
+            <h3>Noise ColorFit Pro 4 Alpha</h3>
+            <p>Heart rate, notifications</p>
+            <p class="price">₹964</p>
+             <button onclick='payNow({type:"Smartwatch", model:"Noise ColorFit Pro 4 Alpha", ram:"256 MB", rom:"4 GB", price:964})'>Pay Now</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="static/images/watches/10.png" alt="Redmi Watch Move">
+        <div class="card-content">
+            <h3>Redmi Watch Move</h3>
+            <p>Fitness tracking, steps & sleep</p>
+            <p class="price">₹1,799</p>
+             <button onclick='payNow({type:"Smartwatch", model:"Redmi Watch Move", ram:"256 MB", rom:"4 GB", price:1799})'>Pay Now</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="static/images/watches/11.png" alt="boAt Storm Infinity Max">
+        <div class="card-content">
+            <h3>boAt Storm Infinity Max</h3>
+            <p>Sports modes & BT calling</p>
+            <p class="price">₹1,399</p>
+            <button onclick='payNow({type:"Smartwatch", model:"boAt Storm Infinity Max", ram:"256 MB", rom:"4 GB", price:1399})'>Pay Now</button>
+        </div>
+        </div>
+
+    <div class="card">
+        <img src="static/images/watches/12.png" alt="GoBoult Tuff Rivet">
+        <div class="card-content">
+            <h3>GoBoult Tuff Rivet</h3>
+            <p>HD display & sports tracking</p>
+            <p class="price">₹1,699</p>
+             <button onclick='payNow({type:"Smartwatch", model:"GoBoult Tuff Rivet", ram:"256 MB", rom:"4 GB", price:1699})'>Pay Now</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="static/images/watches/13.png" alt="Fire Boltt Axiom">
+        <div class="card-content">
+            <h3>Fire Boltt Axiom</h3>
+            <p>Classic BT calling & notifications</p>
+            <p class="price">₹1,999</p>
+             <button onclick='payNow({type:"Smartwatch", model:"Fire Boltt Axiom", ram:"256 MB", rom:"4 GB", price:1999})'>Pay Now</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="static/images/watches/14.png" alt="Fire-Boltt Ninja Call Pro Plus">
+        <div class="card-content">
+            <h3>Fire-Boltt Ninja Call Pro+</h3>
+            <p>Bluetooth call & fitness modes</p>
+            <p class="price">₹1,299</p>
+             <button onclick='payNow({type:"Smartwatch", model:"Fire-Boltt Ninja Call Pro+", ram:"256 MB", rom:"4 GB", price:1299})'>Pay Now</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="static/images/watches/15.png" alt="Fastrack Limitless">
+        <div class="card-content">
+            <h3>Fastrack Limitless</h3>
+            <p>Trending design & basic tracking</p>
+            <p class="price">₹1,499</p>
+             <button onclick='payNow({type:"Smartwatch", model:"Fastrack Limitless", ram:"256 MB", rom:"4 GB", price:1499})'>Pay Now</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://img-prd-pim.poorvika.com/product/Boat-lunar-fit-smartwatch-slate-gray-Front-Left-View.png" alt="boAt Lunar Fit">
+        <div class="card-content">
+            <h3>boAt Lunar Fit</h3>
+            <p>Sports & daily activity tracking</p>
+            <p class="price">₹1,699</p>
+             <button onclick='payNow({type:"Smartwatch", model:"boAt Lunar Fit", ram:"256 MB", rom:"4 GB", price:1699})'>Pay Now</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="static/images/watches/17.png" alt="Fire Boltt Onyx">
+        <div class="card-content">
+            <h3>Fire Boltt Onyx</h3>
+            <p>Bluetooth calling, fitness tracking</p>
+            <p class="price">₹1,499</p>
+             <button onclick='payNow({type:"Smartwatch", model:"Fire Boltt Onyx", ram:"256 MB", rom:"4 GB", price:1499})'>Pay Now</button>
+        </div>
+    </div>
+
+</div>
+<!-- Add more cards up to 30+ using the same structure -->
+<!-- You can use a pattern like Amazfit, Noise, Realme, Fire-Boltt, boAt, Zebronics, Gionee, Lava, etc. -->
+
+
+
+<script>
+function payNow(product){
+  window.location.href = "/add_mobile?type=" + encodeURIComponent(product.type) + "&model=" + encodeURIComponent(product.model) + "&price=" + product.price + "&ram=" + encodeURIComponent(product.ram) + "&rom=" + encodeURIComponent(product.rom);
+}
+</script>
+
+</body>
+</html>

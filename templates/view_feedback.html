@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Customer Feedback | Mobile Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #0d6efd, #6610f2, #20c997, #0dcaf0);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #20c997, #0d6efd);
+    color: white;
+    padding: 35px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+
+.header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.section {
+    padding: 30px;
+    color: white;
+}
+
+.feedback-card {
+    background: rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    transition: 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.comment {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.detail-row {
+    margin: 8px 0;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.images-section {
+    background: rgba(0,0,0,0.2);
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.images-section img {
+    max-width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.images-section img:hover {
+    transform: scale(1.1);
+}
+
+.time {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    text-align: right;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        {% if order_id %}
+            <h1><i class="fa-solid fa-comments"></i> Feedback for {{ order_id }}</h1>
+            <p>Customer reviews for order <strong>{{ order_id }}</strong></p>
+        {% else %}
+            <h1><i class="fa-solid fa-comments"></i> All Customer Feedback</h1>
+            <p>Real reviews from our customers</p>
+        {% endif %}
+    </div>
+
+    <div style="padding: 20px 30px; border-bottom: 1px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center;">
+        <div style="color: white; font-size: 14px;">
+            <strong>Total Feedback:</strong> <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px;">{{ feedbacks|length }}</span>
+        </div>
+        <a href="/my_purchases" style="color: #20c997; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Purchases
+        </a>
+    </div>
+
+    <div class="section">
+
+        {% if feedbacks %}
+            {% for fb in feedbacks %}
+                <div class="feedback-card">
+                    {% set rating = (fb.get('rating')|int) if fb else 0 %}
+
+                    <div class="stars">
+                        {% for i in range(rating) %}
+                            ★
+                        {% endfor %}
+                        {% for i in range(5 - rating) %}
+                            ☆
+                        {% endfor %}
+                    </div>
+
+                    <div class="comment">
+                        <strong>{{ fb.get('name','Anonymous') }}:</strong>
+                        <div>{{ fb.get('comment','') or fb.get('feedback','') }}</div>
+                    </div>
+
+                    {% if fb.get('order_id') %}
+                    <div class="detail-row">
+                        <small style="color: rgba(255,255,255,0.8);"><strong>Order ID:</strong> {{ fb.get('order_id') }}</small>
+                    </div>
+                    {% endif %}
+
+                    {% if fb.get('images') %}
+                    <div class="images-section" style="margin-top: 10px;">
+                        <small style="color: rgba(255,255,255,0.8); display: block; margin-bottom: 8px;"><strong>Images:</strong></small>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            {% for img in fb.get('images').split(',') %}
+                                {% if img.strip() %}
+                                <img src="{{ url_for('static', filename='uploads/' + img.strip()) }}" alt="Feedback image" style="max-width: 80px; height: 80px; border-radius: 8px; object-fit: cover; border: 2px solid rgba(255,255,255,0.3);">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="time">
+                        Submitted on {{ fb.get('date','') }}
+                    </div>
+                    <div style="margin-top:12px; display:flex; gap:8px; justify-content:flex-end;">
+                        <a href="/edit_feedback?id={{ fb.get('id') }}" style="background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600;">Edit</a>
+                        <form method="POST" action="/delete_feedback" onsubmit="return confirm('Delete this feedback?');" style="display:inline;">
+                            <input type="hidden" name="id" value="{{ fb.get('id') }}">
+                            <button type="submit" style="background:#ef4444;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600;">Delete</button>
+                        </form>
+                    </div>
+
+                </div>
+            {% endfor %}
+        {% else %}
+            <p style="text-align: center; color: rgba(255,255,255,0.8); padding: 40px;">No feedback yet. Be the first to share your experience.</p>
+        {% endif %}
+
+    </div>
+</div>
+
+</body>
+</html>

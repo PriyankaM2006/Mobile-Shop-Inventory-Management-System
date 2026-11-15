@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Auto-fill Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        a {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        a:hover {
+            background: #0056b3;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .feature-list li:before {
+            content: "✅ ";
+            color: green;
+            margin-right: 8px;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 Payment Page Auto-fill Test</h1>
+    
+    <div class="test-section">
+        <h2>✨ New Features Implemented</h2>
+        <ul class="feature-list">
+            <li>Auto-fill customer details from URL parameters (name, email, phone)</li>
+            <li>Auto-fill amount from query parameter</li>
+            <li>Product selection dropdown with dynamic prices</li>
+            <li>Dynamic QR code generation based on selected amount</li>
+            <li>Copy payment link button for easy sharing</li>
+            <li>Real-time amount formatting and display</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Test Case 1: Simple Purchase Auto-fill</h2>
+        <p><strong>Scenario:</strong> Customer from purchase history clicks "Pay Now"</p>
+        <p><strong>What it does:</strong> Pre-fills customer details and amount from purchase</p>
+        <div class="test-links">
+            <a href="/online_payment?name=John%20Doe&email=john@example.com&phone=9876543210&amount=25000&product=Smartphone" target="_blank">
+                📱 Test: Phone Purchase (₹25,000)
+            </a>
+            <a href="/online_payment?name=Jane%20Smith&email=jane@example.com&phone=9123456789&amount=3000&product=Power%20Bank" target="_blank">
+                🔋 Test: Power Bank (₹3,000)
+            </a>
+            <a href="/online_payment?name=Ram%20Kumar&email=ram@example.com&phone=9988776655&amount=1500&product=Charger" target="_blank">
+                🔌 Test: Charger (₹1,500)
+            </a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📋 URL Parameter Format</h2>
+        <p>The payment page accepts these URL parameters:</p>
+        <pre><code>/online_payment?name=John&email=john@email.com&phone=9876543210&amount=5000&product=Smartphone&address=123%20Street</code></pre>
+        
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Parameter</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Purpose</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Example</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>name</code></td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Customer name</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">John%20Doe</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>email</code></td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Customer email</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">john@email.com</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>phone</code></td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Phone number</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">9876543210</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>amount</code></td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Payment amount (in paise)</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">25000</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>product</code></td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Product name</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Smartphone</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;"><code>address</code></td>
+                <td style="padding: 10px; border: 1px solid #ddd;">Delivery address</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">123%20Main%20Street</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="test-section">
+        <h2>🔄 Product Selection Feature</h2>
+        <p><strong>Dropdown Options:</strong></p>
+        <ul style="list-style: none; padding: 0;">
+            <li>✓ Smart Watch Series 9 - ₹35,000</li>
+            <li>✓ Smartphone - ₹50,000</li>
+            <li>✓ Charger - ₹1,500</li>
+            <li>✓ Power Bank - ₹3,000</li>
+            <li>✓ Phone Case - ₹500</li>
+        </ul>
+        <p><strong>How it works:</strong></p>
+        <ol>
+            <li>Select a product from the dropdown</li>
+            <li>Amount automatically updates with product price</li>
+            <li>QR code regenerates with new amount</li>
+            <li>Scan QR or copy payment link to pay</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 QR Code Features</h2>
+        <ul class="feature-list">
+            <li>Dynamically generated based on current amount</li>
+            <li>Updates when product selection changes</li>
+            <li>Includes UPI ID: <code>yourname@upi</code></li>
+            <li>Includes merchant name: Your Shop Name</li>
+            <li>Scannable by any UPI app (Google Pay, PhonePe, etc.)</li>
+            <li>Copy Payment Link button for sharing</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Payment Flow</h2>
+        <ol>
+            <li><strong>User clicks "Pay Now"</strong> from purchase history</li>
+            <li><strong>Payment page loads</strong> with auto-filled customer details</li>
+            <li><strong>Amount auto-fills</strong> from purchase amount</li>
+            <li><strong>QR code displays</strong> with correct amount embedded</li>
+            <li><strong>User can:</strong>
+                <ul>
+                    <li>Scan QR with any UPI app to pay</li>
+                    <li>Select different product from dropdown (updates amount and QR)</li>
+                    <li>Copy payment link to share or pay manually</li>
+                </ul>
+            </li>
+            <li><strong>Payment confirmation</strong> redirects to success page</li>
+        </ol>
+    </div>
+
+    <div class="test-section" style="background: #e8f5e9; border: 2px solid #4caf50;">
+        <h2>✨ Implementation Summary</h2>
+        <p><strong>Files Updated:</strong></p>
+        <ul style="list-style: none; padding: 0;">
+            <li>✅ <code>templates/online_payment.html</code> - Added product selector, auto-fill functions, dynamic QR</li>
+            <li>✅ <code>templates/my_purchases.html</code> - "Pay Now" buttons with URL parameters (already done)</li>
+        </ul>
+        <p><strong>JavaScript Functions Added:</strong></p>
+        <ul style="list-style: none; padding: 0;">
+            <li>✅ <code>getURLParams()</code> - Extracts URL parameters</li>
+            <li>✅ <code>updateAmount()</code> - Updates amount when product selection changes</li>
+            <li>✅ <code>updateQRCode(amount)</code> - Regenerates QR code with new amount</li>
+            <li>✅ <code>copyUPILink()</code> - Copies payment link to clipboard</li>
+            <li>✅ <code>DOMContentLoaded</code> event - Auto-fills on page load</li>
+        </ul>
+    </div>
+
+    <div class="test-section" style="background: #fff3e0; border: 2px solid #ff9800;">
+        <h2>⚠️ Important Notes</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li>✓ All amounts are in rupees (₹)</li>
+            <li>✓ URL parameters must be URL-encoded (spaces = %20, etc.)</li>
+            <li>✓ QR code updates dynamically when amount/product changes</li>
+            <li>✓ Payment simulation returns success/failure response</li>
+            <li>✓ Real UPI integration can be added later</li>
+        </ul>
+    </div>
+
+</body>
+</html>

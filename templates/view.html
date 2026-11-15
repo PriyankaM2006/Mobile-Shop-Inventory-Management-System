@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mobile Shop | Home</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    background:linear-gradient(180deg,#1e3a8a,#2563eb);
+    color:#fff;
+    padding-top:20px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    padding:14px 25px;
+}
+
+.sidebar ul li:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+.sidebar ul li a{
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* Main */
+.main{
+    flex:1;
+    padding:30px;
+}
+
+.topbar{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Product Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    padding:22px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card i{
+    font-size:32px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:#1e293b;
+    margin-bottom:6px;
+}
+
+.card p{
+    font-size:14px;
+    color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+     <h2>📱 Mobile Shop</h2>
+    <ul>
+        <li><a href="/dashboard"><i class="fa fa-list"></i>View All Product</a></li>
+        <li><a href="/add_mobile" class="active"><i class="fa fa-search"></i>Purches Product</a></li>
+        <li><a href="/reports"><i class="fa fa-trash"></i>Delete Product</a></li>
+        <li><hr style="margin: 10px 0; border: none; border-top: 1px solid rgba(255,255,255,0.2);"></li>
+        <li><a href="/admin/login" style="background: rgba(231,76,60,0.2); color: #ff6b6b;"><i class="fa fa-shield-alt"></i>🔐 Admin Login</a></li>
+        <li><a href="/logout"><i class="fa fa-sign-out-alt"></i>Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+    <div class="topbar">
+        <h2>Product Categories</h2>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <i class="fa fa-mobile-screen"></i>
+            <h3>Smartphones</h3>
+            <p>Android and iOS devices</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-phone"></i>
+            <h3>Feature Phones</h3>
+            <p>Basic calling phones</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-clock"></i>
+            <h3>Smartwatches</h3>
+            <p>Fitness and smart wearables</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-headphones"></i>
+            <h3>Wireless Earbuds</h3>
+            <p>Bluetooth audio devices</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-battery-full"></i>
+            <h3>Power Banks</h3>
+            <p>Portable charging solutions</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-plug"></i>
+            <h3>Chargers</h3>
+            <p>Fast and standard chargers</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-sd-card"></i>
+            <h3>Memory Cards</h3>
+            <p>Storage accessories</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-mobile"></i>
+            <h3>Phone Cases</h3>
+            <p>Protective covers</p>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-shield-halved"></i>
+            <h3>Screen Protectors</h3>
+            <p>Tempered and film guards</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

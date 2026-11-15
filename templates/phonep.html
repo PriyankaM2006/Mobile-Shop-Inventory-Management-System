@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Phones Catalog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f3f6fb;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      margin-top: 25px;
+      background: linear-gradient(90deg, #1b6be0, #69e1f5 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .gallery {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+      padding-bottom: 50px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(23, 112, 208, 0.10);
+      margin: 0;
+      transition: transform 0.25s, box-shadow 0.18s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 13px 18px 13px;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.025);
+      box-shadow: 0 12px 32px rgba(23,112,208,0.16);
+    }
+    .card img {
+      width: 150px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: #f2f6fb;
+      box-shadow: 0 2px 5px #daf1ff33;
+    }
+    .model {
+      font-size: 1.13em;
+      font-weight: 600;
+      color: #14488e;
+      margin-bottom: 2px;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .brand {
+      font-size: 1em;
+      color: #228;
+      margin-bottom: 3px;
+      opacity: 0.80;
+      text-align: center;
+    }
+    .info {
+      font-size: 0.98em;
+      color: #4e4e4e;
+      margin-bottom: 2px;
+      text-align: center;
+    }
+    .price {
+      font-size: 1.16em;
+      color: #2499ff;
+      margin: 5px 0 2px 0;
+      font-weight: bold;
+      text-align: center;
+    }
+    .stars {
+      color: #f7d33c;
+      margin-top: 3px;
+      letter-spacing: 1px;
+      font-size: 1.03em;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      h1 {font-size: 2em;}
+      .card img { width: 100px; height: 140px; }
+      .card {padding: 10px 7px 14px 7px;}
+    }
+    button {
+      margin-top: 8px;
+      padding: 8px 18px;
+      background-color: #1b6be0;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1454b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mobile Phones Catalog</h1>
+  <div class="gallery">
+
+    <div class="card">
+      <img src="static/images/phone/1.png" alt="iPhone 14 Pro">
+      <div class="model">iPhone 14 Pro</div>
+      <div class="brand">Apple</div>
+      <div class="info">RAM: 6GB | ROM: 256GB</div>
+      <div class="price">₹1,29,999</div>
+      <div class="stars">★★★★★</div>
+      <button onclick='payNow({type:"Smartphone", model:"iPhone 14 Pro", ram:"6GB", rom:"256GB", price:129999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/2.png" alt="Galaxy Z Fold 4">
+      <div class="model">Galaxy Z Fold 4</div>
+      <div class="brand">Samsung</div>
+      <div class="info">RAM: 12GB | ROM: 512GB</div>
+      <div class="price">₹1,49,999</div>
+      <div class="stars">★★★★★</div>
+      <button onclick='payNow({type:"Smartphone", model:"Galaxy Z Fold 4", ram:"12GB", rom:"512GB", price:149999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/3.png" alt="Galaxy S21 Ultra">
+      <div class="model">Galaxy S21 Ultra</div>
+      <div class="brand">Samsung</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹99,999</div>
+      <div class="stars">★★★★★</div>
+      <button onclick='payNow({type:"Smartphone", model:"Galaxy S21 Ultra", ram:"12GB", rom:"256GB", price:99999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/4.png" alt="Pixel 6 Pro">
+      <div class="model">Pixel 6 Pro</div>
+      <div class="brand">Google</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹84,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"Pixel 6 Pro", ram:"12GB", rom:"256GB", price:84999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/5.png" alt="OnePlus 10 Pro">
+      <div class="model">OnePlus 10 Pro</div>
+      <div class="brand">OnePlus</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹79,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"OnePlus 10 Pro", ram:"12GB", rom:"256GB", price:79999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/6.png" alt="Huawei P50 Pro">
+      <div class="model">P50 Pro</div>
+      <div class="brand">Huawei</div>
+      <div class="info">RAM: 8GB | ROM: 128GB</div>
+      <div class="price">₹99,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"P50 Pro", ram:"8GB", rom:"128GB", price:99999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/7.png" alt="Oppo Find X3 Pro">
+      <div class="model">Find X3 Pro</div>
+      <div class="brand">Oppo</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹1,09,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"Find X3 Pro", ram:"12GB", rom:"256GB", price:109999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/8.png" alt="Realme GT Neo 2">
+      <div class="model">GT Neo 2</div>
+      <div class="brand">Realme</div>
+      <div class="info">RAM: 8GB | ROM: 128GB</div>
+      <div class="price">₹39,999</div>
+      <div class="stars">★★★☆☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"GT Neo 2", ram:"8GB", rom:"128GB", price:39999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/9.png" alt="Vivo X70 Pro Plus">
+      <div class="model">X70 Pro+</div>
+      <div class="brand">Vivo</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹84,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"X70 Pro+", ram:"12GB", rom:"256GB", price:84999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/10.png" alt="iPhone 14 Pro Max">
+      <div class="model">iPhone 14 Pro Max</div>
+      <div class="brand">Apple</div>
+      <div class="info">RAM: 6GB | ROM: 256GB</div>
+      <div class="price">₹1,29,999</div>
+      <div class="stars">★★★★★</div>
+      <button onclick='payNow({type:"Smartphone", model:"iPhone 14 Pro Max", ram:"6GB", rom:"256GB", price:129999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/11.png" alt="OnePlus 11">
+      <div class="model">OnePlus 11</div>
+      <div class="brand">OnePlus</div>
+      <div class="info">RAM: 16GB | ROM: 256GB</div>
+      <div class="price">₹61,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"OnePlus 11", ram:"16GB", rom:"256GB", price:61999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/12.png" alt="Oppo Reno 8 Pro">
+      <div class="model">Reno 8 Pro</div>
+      <div class="brand">Oppo</div>
+      <div class="info">RAM: 8GB | ROM: 128GB</div>
+      <div class="price">₹45,999</div>
+      <div class="stars">★★★☆☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"Reno 8 Pro", ram:"8GB", rom:"128GB", price:45999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/13.png" alt="Realme GT 2 Pro">
+      <div class="model">GT 2 Pro</div>
+      <div class="brand">Realme</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹49,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"GT 2 Pro", ram:"12GB", rom:"256GB", price:49999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/14.png" alt="Vivo X80 Pro">
+      <div class="model">X80 Pro</div>
+      <div class="brand">Vivo</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹79,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"X80 Pro", ram:"12GB", rom:"256GB", price:79999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/15.png" alt="Huawei Mate 50 Pro">
+      <div class="model">Mate 50 Pro</div>
+      <div class="brand">Huawei</div>
+      <div class="info">RAM: 12GB | ROM: 256GB</div>
+      <div class="price">₹1,09,999</div>
+      <div class="stars">★★★★☆</div>
+      <button onclick='payNow({type:"Smartphone", model:"Mate 50 Pro", ram:"12GB", rom:"256GB", price:109999})'>Pay Now</button>
+    </div>
+
+    <div class="card">
+      <img src="static/images/phone/16.png" alt="iPhone 13 Pro Max">
+      <div class="model">iPhone 13 Pro Max</div>
+      <div class="brand">Apple</div>
+      <div class="info">RAM: 6GB | ROM: 128GB</div>
+      <div class="price">₹1,09,999</div>
+      <div class="stars">★★★★★</div>
+      <button onclick='payNow({type:"Smartphone", model:"iPhone 13 Pro Max", ram:"6GB", rom:"128GB", price:109999})'>Pay Now</button>
+    </div>
+
+  </div>
+
+  <script>
+    function payNow(product){
+      window.location.href = "/add_mobile?type=" + encodeURIComponent(product.type) + "&model=" + encodeURIComponent(product.model) + "&price=" + product.price + "&ram=" + encodeURIComponent(product.ram) + "&rom=" + encodeURIComponent(product.rom);
+    }
+  </script>
+</body>
+</html>

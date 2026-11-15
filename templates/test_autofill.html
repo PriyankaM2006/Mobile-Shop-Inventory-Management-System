@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Product Autofill</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; }
+        .test-section { background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        #products { margin-top: 10px; }
+        .product { padding: 10px; background: white; margin: 5px 0; cursor: pointer; border: 1px solid #ddd; }
+        .product:hover { background: #e0e0e0; }
+        input { width: 100%; padding: 8px; margin: 5px 0; }
+        label { display: block; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>✓ Product Autofill Test</h1>
+    
+    <div class="test-section">
+        <h3>1. API Test</h3>
+        <button onclick="testAPI()">Test /api/products</button>
+        <div id="apiResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>2. Load Products Dropdown</h3>
+        <button onclick="loadProducts()">Load Products</button>
+        <div id="products"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>3. Test Autofill Form</h3>
+        <label>Select Product:</label>
+        <select id="productSelect" onchange="autofillProduct()">
+            <option value="">-- Select Product --</option>
+            <option value="manual">Manual Entry</option>
+        </select>
+        
+        <label>Product Name:</label>
+        <input type="text" id="productName" placeholder="Will autofill...">
+        
+        <label>Price (₹):</label>
+        <input type="number" id="productPrice" placeholder="Will autofill...">
+    </div>
+
+    <script>
+        async function testAPI() {
+            try {
+                const response = await fetch('/api/products');
+                const data = await response.json();
+                console.log('API Response:', data);
+                
+                let html = '<h4>✓ API Response:</h4>';
+                if (data.products) {
+                    html += `<p>Found ${data.products.length} products</p>`;
+                    html += '<ul>';
+                    data.products.forEach(p => {
+                        html += `<li>${p.name} - ₹${p.price} (ID: ${p.id})</li>`;
+                    });
+                    html += '</ul>';
+                } else {
+                    html += '<p style="color:red">No products in response!</p>';
+                }
+                document.getElementById('apiResult').innerHTML = html;
+            } catch (error) {
+                document.getElementById('apiResult').innerHTML = `<p style="color:red">Error: ${error.message}</p>`;
+                console.error('Error:', error);
+            }
+        }
+
+        async function loadProducts() {
+            try {
+                const response = await fetch('/api/products');
+                const data = await response.json();
+                const container = document.getElementById('products');
+                
+                if (data.products && data.products.length > 0) {
+                    container.innerHTML = '';
+                    data.products.forEach(product => {
+                        const div = document.createElement('div');
+                        div.className = 'product';
+                        div.innerHTML = `<strong>${product.name}</strong> - ₹${product.price}`;
+                        div.onclick = () => selectProduct(product);
+                        container.appendChild(div);
+                    });
+                } else {
+                    container.innerHTML = '<p style="color:red">No products found!</p>';
+                }
+            } catch (error) {
+                document.getElementById('products').innerHTML = `<p style="color:red">Error: ${error.message}</p>`;
+                console.error('Error:', error);
+            }
+        }
+
+        function selectProduct(product) {
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            console.log('Selected:', product);
+        }
+
+        async function autofillProduct() {
+            const select = document.getElementById('productSelect');
+            const productId = select.value;
+            
+            console.log('Selected product ID:', productId);
+            
+            if (!productId || productId === 'manual') {
+                document.getElementById('productName').value = '';
+                document.getElementById('productPrice').value = '';
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/product/${productId}`);
+                const data = await response.json();
+                console.log('Product detail response:', data);
+                
+                if (data.product) {
+                    document.getElementById('productName').value = data.product.name;
+                    document.getElementById('productPrice').value = data.product.price;
+                    console.log('✓ Autofilled:', data.product.name, '-', data.product.price);
+                } else {
+                    console.error('Product not found:', data);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Load products dropdown on page load
+        window.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const response = await fetch('/api/products');
+                const data = await response.json();
+                const select = document.getElementById('productSelect');
+                
+                if (data.products && data.products.length > 0) {
+                    data.products.forEach(product => {
+                        const option = document.createElement('option');
+                        option.value = product.id;
+                        option.textContent = `${product.name} - ₹${product.price}`;
+                        select.appendChild(option);
+                    });
+                    console.log('✓ Loaded ' + data.products.length + ' products in dropdown');
+                }
+            } catch (error) {
+                console.error('Error loading dropdown:', error);
+            }
+        });
+    </script>
+</body>
+</html>

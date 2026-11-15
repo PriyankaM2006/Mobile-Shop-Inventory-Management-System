@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email History - {{ customer.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .email-history-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .header-section h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        
+        .customer-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            opacity: 0.9;
+        }
+        
+        .email-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .email-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .email-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        
+        .email-card.expanded {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .email-toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0;
+            margin-left: 10px;
+        }
+        
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+        
+        .email-subject {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+        }
+        
+        .email-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .email-timestamp {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .email-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .status-sent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-failed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .email-body {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            max-height: 300px;
+            overflow-y: auto;
+            border-left: 4px solid #667eea;
+            margin-top: 12px;
+            display: none;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+        
+        .email-card.expanded .email-body {
+            display: block;
+        }
+        
+        .email-body-content {
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            margin-top: 10px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            color: #999;
+        }
+        
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #5568d3;
+        }
+        
+        .filter-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-button {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .filter-button:hover,
+        .filter-button.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-history-container">
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <a href="{{ url_for('admin_customer_detail', customer_id=customer.id) }}" class="back-button">← Back to Customer</a>
+            <a href="{{ url_for('admin_send_message', customer_id=customer.id) }}" class="back-button" style="background: #10b981;">
+                Send Email
+            </a>
+        </div>
+        
+        <div class="header-section">
+            <h1>Email History</h1>
+            <div class="customer-info">
+                <div class="info-item">
+                    <span class="info-label">Customer Name:</span>
+                    <span>{{ customer.name }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email:</span>
+                    <span>{{ customer.email }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Order ID:</span>
+                    <span>{{ customer.id }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Phone:</span>
+                    <span>{{ customer.mobile }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">{{ email_history|length }}</div>
+                <div class="stat-label">Total Emails</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ email_history|selectattr('status', 'equalto', 'sent')|list|length }}</div>
+                <div class="stat-label">Sent</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ email_history|selectattr('status', 'equalto', 'pending')|list|length }}</div>
+                <div class="stat-label">Pending</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ email_history|selectattr('status', 'equalto', 'failed')|list|length }}</div>
+                <div class="stat-label">Failed</div>
+            </div>
+        </div>
+        
+        <!-- Email List -->
+        <h2 style="margin-top: 30px; color: #333;">📬 Messages</h2>
+        
+        {% if email_history %}
+            <div class="email-list">
+                {% for email in email_history|reverse %}
+                    <div class="email-card" onclick="toggleEmailDetails(this)" id="email-{{ loop.index }}">
+                        <div class="email-header">
+                            <div style="flex: 1;">
+                                <div style="margin-bottom: 8px;">
+                                    <span class="email-subject">{{ email.subject }}</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="email-status status-{{ email.status }}">{{ email.status }}</span>
+                                <span class="email-toggle-btn">▼</span>
+                            </div>
+                        </div>
+                        
+                        <div class="email-meta">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 13px; color: #666;">
+                                <div>
+                                    <span style="color: #999;">Sent On:</span><br>
+                                    <strong>{{ email.timestamp }}</strong>
+                                </div>
+                                <div>
+                                    <span style="color: #999;">To:</span><br>
+                                    <strong>{{ customer.email }}</strong>
+                                </div>
+                                <div>
+                                    <span style="color: #999;">Status:</span><br>
+                                    {% if email.status.lower() == 'sent' %}
+                                        <strong style="color: #22c55e;">Delivered</strong>
+                                    {% elif email.status.lower() == 'failed' %}
+                                        <strong style="color: #ef4444;">Failed</strong>
+                                    {% elif email.status.lower() == 'pending' %}
+                                        <strong style="color: #f59e0b;">Pending</strong>
+                                    {% else %}
+                                        <strong>{{ email.status }}</strong>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <div class="empty-state-icon">📭</div>
+                <h3>No Email History</h3>
+                <p>No emails have been sent to this customer yet.</p>
+                <a href="{{ url_for('admin_send_message', customer_id=customer.id) }}" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                    Send your first email →
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function toggleEmailDetails(element) {
+            const emailCard = element;
+            const isExpanded = emailCard.classList.contains('expanded');
+            
+            // Close all other expanded cards
+            document.querySelectorAll('.email-card.expanded').forEach(card => {
+                if (card !== emailCard) {
+                    card.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current card
+            emailCard.classList.toggle('expanded');
+            
+            // Update toggle button rotation
+            const btn = emailCard.querySelector('.email-toggle-btn');
+            if (btn) {
+                btn.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                btn.style.transition = 'transform 0.3s ease';
+            }
+        }
+    </script>
+</body>
+</html>

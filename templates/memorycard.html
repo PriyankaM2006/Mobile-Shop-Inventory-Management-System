@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Budget Memory Cards Under ₹2000</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fafc;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #1e293b;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 12px;
+}
+.card-content h3 {
+    font-size: 15px;
+    color: #1e293b;
+    margin: 8px 0;
+    font-weight: 600;
+}
+.card-content p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #64748b;
+}
+.price {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #dc2626;
+}
+button {
+  margin-top: 8px;
+  padding: 8px 18px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+</style>
+</head>
+<body>
+
+<h1>Budget Memory Cards (Under ₹2000)</h1>
+
+<div class="grid">
+
+<!-- SanDisk Memory Cards -->
+<!-- SanDisk 32GB microSD -->
+<!-- <div class="card">
+    <img src="https://www.bing.com/th/id/OIP.Gp0D9ee-zx10QEXTMxns2AHaHa?w=189&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="SanDisk 32GB microSD">
+    <div class="card-content">
+        <h3>SanDisk 32GB microSD</h3>
+        <p>Capacity: 32GB | Type: microSD | Class 10</p>
+        <p class="price">₹399</p>
+        <button onclick='payNow({type:"Memory Card", model:"SanDisk 32GB microSD", price:399, capacity:"32GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div> -->
+
+<!-- SanDisk 64GB SD -->
+    <!-- <div class="card">
+        <img src="https://www.bing.com/th/id/OIP.BM4wB5rcwgzaIA0Y2sgLegHaHa?w=199&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="SanDisk 64GB SD">
+        <div class="card-content">
+            <h3>SanDisk 64GB SD</h3>
+            <p>Capacity: 64GB | Type: SD | Class 10</p>
+            <p class="price">₹699</p>
+            <button onclick='payNow({type:"Memory Card", model:"SanDisk 64GB SD", price:699, capacity:"64GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+        </div>
+    </div> -->
+
+    <!-- SanDisk 64GB microSD -->
+    <!-- <div class="card">
+        <img src="https://www.bing.com/th/id/OIP.qWfdESB9Ox3MkID7gvYEnAHaGV?w=220&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="SanDisk 64GB microSD">
+        <div class="card-content">
+            <h3>SanDisk 64GB microSD</h3>
+            <p>Capacity: 64GB | Type: microSD | Class 10</p>
+            <p class="price">₹649</p>
+            <button onclick='payNow({type:"Memory Card", model:"SanDisk 64GB microSD", price:649, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+        </div>
+    </div> -->
+
+    <!-- SanDisk 128GB microSD -->
+    <!-- <div class="card">
+        <img src="https://www.bing.com/th/id/OIP.qg3guGRvAckptKZ9jI0cBAHaHa?w=166&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="SanDisk 128GB microSD">
+        <div class="card-content">
+            <h3>SanDisk 128GB microSD</h3>
+            <p>Capacity: 128GB | Type: microSD | Class 10</p>
+            <p class="price">₹1,299</p>
+            <button onclick='payNow({type:"Memory Card", model:"SanDisk 128GB microSD", price:1299, capacity:"128GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+        </div>
+    </div> -->
+
+    <!-- SanDisk 256GB microSD -->
+    <!-- <div class="card">
+        <img src="https://www.bing.com/th/id/OIP.EKDpesJqKSJuYD1k-yJT-wHaHa?w=176&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="SanDisk 256GB microSD">
+        <div class="card-content">
+            <h3>SanDisk 256GB microSD</h3>
+            <p>Capacity: 256GB | Type: microSD | UHS‑I</p>
+            <p class="price">₹1,799</p>
+            <button onclick='payNow({type:"Memory Card", model:"SanDisk 256GB microSD", price:1799, capacity:"256GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+        </div>
+    </div> -->
+
+    <!-- Samsung Memory Cards -->
+    <!-- Samsung 64GB microSD -->
+    <!-- <div class="card">
+        <img src="https://www.bing.com/th/id/OIP.HkTiwCHUyqQVzS0zQIOedgHaHa?w=168&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Samsung 64GB microSD">
+        <div class="card-content">
+            <h3>Samsung 64GB microSD</h3>
+            <p>Capacity: 64GB | Type: microSD | UHS‑I</p>
+            <p class="price">₹799</p>
+            <button onclick='payNow({type:"Memory Card", model:"Samsung 64GB microSD", price:799, capacity:"64GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+        </div>
+    </div> -->
+
+    <!-- Samsung 128GB microSD -->
+    <!-- <div class="card">
+        <img src="https://www.bing.com/th/id/OIP.NKkePRM8kpzYwoevJSh8JQHaF6?w=243&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Samsung 128GB microSD">
+        <div class="card-content">
+            <h3>Samsung 128GB microSD</h3>
+            <p>Capacity: 128GB | Type: microSD | UHS‑I</p>
+            <p class="price">₹1,399</p>
+            <button onclick='payNow({type:"Memory Card", model:"Samsung 128GB microSD", price:1399, capacity:"128GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+        </div>
+    </div> -->
+
+<!-- Kingston Memory Cards -->
+<!-- Kingston 64GB SD -->
+<!-- <div class="card">
+    <img src="https://www.bing.com/th/id/OIP.iIwPpDgU-UWFh_yKGBhGyQHaJo?w=161&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Kingston 64GB SD">
+    <div class="card-content">
+        <h3>Kingston 64GB SD</h3>
+        <p>Capacity: 64GB | Type: SD | Class 10</p>
+        <p class="price">₹749</p>
+        <button onclick='payNow({type:"Memory Card", model:"Kingston 64GB SD", price:749, capacity:"64GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div> -->
+
+<!-- Kingston 128GB microSD -->
+<!-- <div class="card">
+    <img src="static/images/screen_protector/10.png" alt="Kingston 128GB microSD">
+    <div class="card-content">
+        <h3>Kingston 128GB microSD</h3>
+        <p>Capacity: 128GB | Type: microSD | UHS‑I</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Memory Card", model:"Kingston 128GB microSD", price:1299, capacity:"128GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div> -->
+
+<!-- Kingston 256GB microSD -->
+<!-- <div class="card">
+    <img src="static/images/screen_protector/11.png" alt="Kingston 256GB microSD">
+    <div class="card-content">
+        <h3>Kingston 256GB microSD</h3>
+        <p>Capacity: 256GB | Type: microSD | UHS‑I</p>
+        <p class="price">₹1,699</p>
+        <button onclick='payNow({type:"Memory Card", model:"Kingston 256GB microSD", price:1699, capacity:"256GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div> -->
+
+<!-- Lexar Memory Cards -->
+<!-- Lexar 64GB microSD -->
+<div class="card">
+    <img src="static/images/screen_protector/12.png" alt="Lexar 64GB microSD">
+    <div class="card-content">
+        <h3>Lexar 64GB microSD</h3>
+        <p>Capacity: 64GB | Type: microSD | Class 10</p>
+        <p class="price">₹649</p>
+        <button onclick='payNow({type:"Memory Card", model:"Lexar 64GB microSD", price:649, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Lexar 128GB SD -->
+<!-- <div class="card">
+    <img src="static/images/screen_protector/13.png" alt="Lexar 128GB SD">
+    <div class="card-content">
+        <h3>Lexar 128GB SD</h3>
+        <p>Capacity: 128GB | Type: SD | Class 10</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Memory Card", model:"Lexar 128GB SD", price:1299, capacity:"128GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div> -->
+
+<!-- PNY Memory Cards -->
+<!-- PNY 64GB microSD -->
+<div class="card">
+    <img src="static/images/screen_protector/14.png" alt="PNY 64GB microSD">
+    <div class="card-content">
+        <h3>PNY 64GB microSD</h3>
+        <p>Capacity: 64GB | Type: microSD | Class 10</p>
+        <p class="price">₹699</p>
+        <button onclick='payNow({type:"Memory Card", model:"PNY 64GB microSD", price:699, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- PNY 128GB SD -->
+<div class="card">
+    <img src="static/images/screen_protector/15.png " alt="PNY 128GB SD">
+    <div class="card-content">
+        <h3>PNY 128GB SD</h3>
+        <p>Capacity: 128GB | Type: SD | Class 10</p>
+        <p class="price">₹1,399</p>
+        <button onclick='payNow({type:"Memory Card", model:"PNY 128GB SD", price:1399, capacity:"128GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- PNY 256GB microSD -->
+<div class="card">
+    <img src="static/images/screen_protector/16.png" alt="PNY 256GB microSD">
+    <div class="card-content">
+        <h3>PNY 256GB microSD</h3>
+        <p>Capacity: 256GB | Type: microSD | UHS‑I</p>
+        <p class="price">₹1,799</p>
+        <button onclick='payNow({type:"Memory Card", model:"PNY 256GB microSD", price:1799, capacity:"256GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- HP Memory Cards -->
+<!-- HP 64GB SD -->
+<div class="card">
+    <img src="static/images/screen_protector/17.png" alt="HP 64GB SD">
+    <div class="card-content">
+        <h3>HP 64GB SD</h3>
+        <p>Capacity: 64GB | Type: SD | Class 10</p>
+        <p class="price">₹649</p>
+        <button onclick='payNow({type:"Memory Card", model:"HP 64GB SD", price:649, capacity:"64GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- HP 128GB microSD -->
+<div class="card">
+    <img src="static/images/screen_protector/18.png" alt="HP 128GB microSD">
+    <div class="card-content">
+        <h3>HP 128GB microSD</h3>
+        <p>Capacity: 128GB | Type: microSD | Class 10</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Memory Card", model:"HP 128GB microSD", price:1299, capacity:"128GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Transcend Memory Cards -->
+<!-- Transcend 64GB microSD -->
+<div class="card">
+    <img src="static/images/screen_protector/19.png" alt="Transcend 64GB microSD">
+    <div class="card-content">
+        <h3>Transcend 64GB microSD</h3>
+        <p>Capacity: 64GB | Type: microSD | Class 10</p>
+        <p class="price">₹699</p>
+        <button onclick='payNow({type:"Memory Card", model:"Transcend 64GB microSD", price:699, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Transcend 128GB SD -->
+<div class="card">
+    <img src="static/images/screen_protector/20.png" alt="Transcend 128GB SD">
+    <div class="card-content">
+        <h3>Transcend 128GB SD</h3>
+        <p>Capacity: 128GB | Type: SD | Class 10</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Memory Card", model:"Transcend 128GB SD", price:1299, capacity:"128GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+      <img src="static/images/screen_protector/21.png" alt="SanDisk 32GB microSD">
+      <div class="card-content">
+          <h3>SanDisk 32GB microSD</h3>
+          <p>Capacity: 32GB | Type: microSD | Class 10</p>
+          <p class="price">₹399</p>
+          <button onclick='payNow({type:"Memory Card", model:"SanDisk 32GB microSD", price:399, capacity:"32GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+</div>
+  <div class="card">
+      <img src="static/images/screen_protector/22.png" alt="SanDisk 64GB microSD">
+      <div class="card-content">
+          <h3>SanDisk 64GB microSD</h3>
+          <p>Capacity: 64GB | Type: microSD | Class 10</p>
+          <p class="price">₹649</p>
+          <button onclick='payNow({type:"Memory Card", model:"SanDisk 64GB microSD", price:649, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/23.png" alt="SanDisk 128GB microSD">
+      <div class="card-content">
+          <h3>SanDisk 128GB microSD</h3>
+          <p>Capacity: 128GB | Type: microSD | UHS‑I</p>
+          <p class="price">₹1,299</p>
+          <button onclick='payNow({type:"Memory Card", model:"SanDisk 128GB microSD", price:1299, capacity:"128GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/24.png" alt="SanDisk 256GB microSD">
+      <div class="card-content">
+          <h3>SanDisk 256GB microSD</h3>
+          <p>Capacity: 256GB | Type: microSD | UHS‑I</p>
+          <p class="price">₹1,799</p>
+          <button onclick='payNow({type:"Memory Card", model:"SanDisk 256GB microSD", price:1799, capacity:"256GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/25.png" alt="Samsung 64GB microSD">
+      <div class="card-content">
+          <h3>Samsung 64GB microSD</h3>
+          <p>Capacity: 64GB | Type: microSD | UHS‑I</p>
+          <p class="price">₹799</p>
+          <button onclick='payNow({type:"Memory Card", model:"Samsung 64GB microSD", price:799, capacity:"64GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/26.png" alt="Samsung 128GB microSD">
+      <div class="card-content">
+          <h3>Samsung 128GB microSD</h3>
+          <p>Capacity: 128GB | Type: microSD | UHS‑I</p>
+          <p class="price">₹1,399</p>
+          <button onclick='payNow({type:"Memory Card", model:"Samsung 128GB microSD", price:1399, capacity:"128GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/27.png" alt="Kingston 64GB SD">
+      <div class="card-content">
+          <h3>Kingston 64GB SD</h3>
+          <p>Capacity: 64GB | Type: SD | Class 10</p>
+          <p class="price">₹749</p>
+          <button onclick='payNow({type:"Memory Card", model:"Kingston 64GB SD", price:749, capacity:"64GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/28.png" alt="Kingston 128GB microSD">
+      <div class="card-content">
+          <h3>Kingston 128GB microSD</h3>
+          <p>Capacity: 128GB | Type: microSD | UHS‑I</p>
+          <p class="price">₹1,299</p>
+          <button onclick='payNow({type:"Memory Card", model:"Kingston 128GB microSD", price:1299, capacity:"128GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/29.png" alt="Kingston 256GB microSD">
+      <div class="card-content">
+          <h3>Kingston 256GB microSD</h3>
+          <p>Capacity: 256GB | Type: microSD | UHS‑I</p>
+          <p class="price">₹1,699</p>
+          <button onclick='payNow({type:"Memory Card", model:"Kingston 256GB microSD", price:1699, capacity:"256GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="static/images/screen_protector/30.png" alt="Lexar 64GB microSD">
+      <div class="card-content">
+          <h3>Lexar 64GB microSD</h3>
+          <p>Capacity: 64GB | Type: microSD | Class 10</p>
+          <p class="price">₹699</p>
+          <button onclick='payNow({type:"Memory Card", model:"Lexar 64GB microSD", price:699, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <!-- <div class="card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=220&h=220&fit=crop" alt="Lexar 128GB SD">
+      <div class="card-content">
+          <h3>Lexar 128GB SD</h3>
+          <p>Capacity: 128GB | Type: SD | Class 10</p>
+          <p class="price">₹1,299</p>
+          <button onclick='payNow({type:"Memory Card", model:"Lexar 128GB SD", price:1299, capacity:"128GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=220&h=220&fit=crop" alt="PNY 64GB microSD">
+      <div class="card-content">
+          <h3>PNY 64GB microSD</h3>
+          <p>Capacity: 64GB | Type: microSD | Class 10</p>
+          <p class="price">₹699</p>
+          <button onclick='payNow({type:"Memory Card", model:"PNY 64GB microSD", price:699, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=220&h=220&fit=crop" alt="PNY 128GB SD">
+      <div class="card-content">
+          <h3>PNY 128GB SD</h3>
+          <p>Capacity: 128GB | Type: SD | Class 10</p>
+          <p class="price">₹1,399</p>
+          <button onclick='payNow({type:"Memory Card", model:"PNY 128GB SD", price:1399, capacity:"128GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=220&h=220&fit=crop" alt="HP 64GB SD">
+      <div class="card-content">
+          <h3>HP 64GB SD</h3>
+          <p>Capacity: 64GB | Type: SD | Class 10</p>
+          <p class="price">₹649</p>
+          <button onclick='payNow({type:"Memory Card", model:"HP 64GB SD", price:649, capacity:"64GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=220&h=220&fit=crop" alt="HP 128GB microSD">
+      <div class="card-content">
+          <h3>HP 128GB microSD</h3>
+          <p>Capacity: 128GB | Type: microSD | Class 10</p>
+          <p class="price">₹1,299</p>
+          <button onclick='payNow({type:"Memory Card", model:"HP 128GB microSD", price:1299, capacity:"128GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=220&h=220&fit=crop" alt="Transcend 64GB microSD">
+      <div class="card-content">
+          <h3>Transcend 64GB microSD</h3>
+          <p>Capacity: 64GB | Type: microSD | Class 10</p>
+          <p class="price">₹699</p>
+          <button onclick='payNow({type:"Memory Card", model:"Transcend 64GB microSD", price:699, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+  <div class="card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=220&h=220&fit=crop" alt="Transcend 128GB SD">
+      <div class="card-content">
+          <h3>Transcend 128GB SD</h3>
+          <p>Capacity: 128GB | Type: SD | Class 10</p>
+          <p class="price">₹1,299</p>
+          <button onclick='payNow({type:"Memory Card", model:"Transcend 128GB SD", price:1299, capacity:"128GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+      </div>
+  </div>
+
+<!-- ADATA Memory Cards -->
+<!-- ADATA 64GB microSD -->
+<!-- <div class="card">
+    <img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?w=220&h=220&fit=crop" alt="ADATA 64GB microSD">
+    <div class="card-content">
+        <h3>ADATA 64GB microSD</h3>
+        <p>Capacity: 64GB | Type: microSD | Class 10</p>
+        <p class="price">₹699</p>
+        <button onclick='payNow({type:"Memory Card", model:"ADATA 64GB microSD", price:699, capacity:"64GB", card_type:"microSD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- ADATA 128GB SD -->
+<!-- <div class="card">
+    <img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?w=220&h=220&fit=crop" alt="ADATA 128GB SD">
+    <div class="card-content">
+        <h3>ADATA 128GB SD</h3>
+        <p>Capacity: 128GB | Type: SD | Class 10</p>
+        <p class="price">₹1,399</p>
+        <button onclick='payNow({type:"Memory Card", model:"ADATA 128GB SD", price:1399, capacity:"128GB", card_type:"SD", speed_class:"Class 10", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div> -->
+
+<!-- Toshiba Memory Cards -->
+<!-- Toshiba 128GB microSD -->
+<!-- <div class="card">
+    <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=220&h=220&fit=crop" alt="Toshiba 128GB microSD">
+    <div class="card-content">
+        <h3>Toshiba 128GB microSD</h3>
+        <p>Capacity: 128GB | Type: microSD | UHS‑I</p>
+        <p class="price">₹1,499</p>
+        <button onclick='payNow({type:"Memory Card", model:"Toshiba 128GB microSD", price:1499, capacity:"128GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div> -->
+
+<!-- Sony Memory Cards -->
+<!-- Sony 128GB microSD -->
+<!-- <div class="card">
+    <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=220&h=220&fit=crop" alt="Sony 128GB microSD">
+    <div class="card-content">
+        <h3>Sony 128GB microSD</h3>
+        <p>Capacity: 128GB | Type: microSD | UHS‑I</p>
+        <p class="price">₹1,499</p>
+        <button onclick='payNow({type:"Memory Card", model:"Sony 128GB microSD", price:1499, capacity:"128GB", card_type:"microSD", speed_class:"UHS-I", warranty:"1 Year"})'>Pay Now</button>
+    </div>
+</div>  -->
+<!-- Continue adding similar memory cards up to 20+ -->
+
+</div>
+
+<script>
+function payNow(product){
+  window.location.href = "/add_mobile?type=" + encodeURIComponent(product.type) + "&model=" + encodeURIComponent(product.model) + "&price=" + product.price + "&capacity=" + encodeURIComponent(product.capacity) + "&card_type=" + encodeURIComponent(product.card_type) + "&speed_class=" + encodeURIComponent(product.speed_class) + "&warranty=" + encodeURIComponent(product.warranty);
+}
+</script>
+
+</body>
+</html>

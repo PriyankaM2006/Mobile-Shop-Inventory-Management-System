@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>View All Mails - Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #1d2671, #c33764); display: flex; justify-content: center; padding: 20px; }
+    .mail-container { width: 100%; max-width: 1000px; background: #ffffff; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); overflow: hidden; }
+    .mail-header { background: linear-gradient(90deg, #4a00e0, #8e2de2); color: #fff; padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .mail-header h1 { margin: 0; font-size: 24px; display: flex; align-items: center; gap: 10px; }
+    .mail-header .actions button { border: none; background: rgba(255,255,255,0.2); color: #fff; padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-left: 10px; }
+    .mail-header .actions button:hover { background: rgba(255,255,255,0.35); }
+    .mail-list { max-height: 500px; overflow-y: auto; }
+    .mail-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 30px; border-bottom: 1px solid #eee; cursor: pointer; transition: 0.2s; }
+    .mail-item:hover { background: #f7f9ff; }
+    .mail-left { display: flex; align-items: center; gap: 15px; }
+    .avatar { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #8e2de2, #4a00e0); color: #fff; font-weight: 600; display: flex; justify-content: center; align-items: center; font-size: 16px; }
+    .mail-info { display: flex; flex-direction: column; }
+    .mail-info .sender { font-weight: 600; font-size: 14px; color: #333; }
+    .mail-info .subject { font-size: 13px; color: #666; }
+    .mail-info .recipient, .mail-info .body { font-size: 12px; color: #555; }
+    .mail-right { display: flex; align-items: center; gap: 15px; font-size: 13px; color: #999; }
+    .status { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+    .sent { background: #e0f7e9; color: #2e8b57; }
+    .failed { background: #ffe0e0; color: #b00020; }
+    .pending { background: #fff4d6; color: #a36a00; }
+    .mail-footer { padding: 15px 30px; background: #f5f6fa; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #666; }
+    .mail-footer button { border: none; background: #4a00e0; color: #fff; padding: 10px 18px; border-radius: 8px; cursor: pointer; }
+    .mail-footer button:hover { background: #5c1be3; }
+  </style>
+</head>
+<body>
+
+<div class="mail-container">
+  <div class="mail-header">
+    <h1><i class="fa-solid fa-envelope"></i> All Sent Mails</h1>
+  </div>
+
+  <div class="mail-list">
+    {% for mail in mails %}
+    <div class="mail-item">
+      <div class="mail-left">
+        <div class="avatar">{{ mail.sender[0] }}</div>
+        <div class="mail-info">
+          <span class="sender">{{ mail.sender }}</span>
+          <span class="recipient">To: {{ mail.recipient }}</span>
+          <span class="subject">Subject: {{ mail.subject }}</span>
+          <span class="body">{{ mail.body[:50] }}{% if mail.body|length > 50 %}...{% endif %}</span>
+        </div>
+      </div>
+      <div class="mail-right">
+        <span>{{ mail.sent_time.strftime('%d %b %Y %H:%M') }}</span>
+        <span class="status {% if mail.status=='Sent' %}sent{% elif mail.status=='Pending' %}pending{% else %}failed{% endif %}">{{ mail.status }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="mail-footer">
+    <span>Showing {{ mails|length }} mails</span>
+    <button onclick="window.location.href='{{ url_for('dashboard') }}'">Back to Dashboard</button>
+  </div>
+</div>
+
+</body>
+</html>

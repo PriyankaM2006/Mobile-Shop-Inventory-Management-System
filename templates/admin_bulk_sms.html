@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Bulk SMS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .customer-list {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .customer-item {
+            padding: 8px;
+            background: white;
+            margin: 5px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            border-left: 3px solid #4CAF50;
+        }
+        .customer-item:hover {
+            background: #e8f5e9;
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .results-table th {
+            background: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .results-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .results-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .status-success {
+            color: #28a745;
+            font-weight: 600;
+        }
+        .status-failed {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        .back-link {
+            margin-bottom: 20px;
+        }
+        .back-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-link">
+            <a href="{{ url_for('admin_dashboard') }}">← Back to Dashboard</a>
+        </div>
+
+        <h1>📱 Send Bulk SMS</h1>
+        
+        {% if success %}
+            <div class="success-message">{{ success }}</div>
+        {% endif %}
+        
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        {% if results %}
+            <!-- Show results -->
+            <div style="background: #f5f5f5; padding: 20px; border-radius: 5px;">
+                <h3>SMS Sending Results</h3>
+                <p><strong>Total Sent:</strong> {{ sent_count }} ✓ | <strong>Failed:</strong> {{ failed_count }} ✗</p>
+                
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Phone Number</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                            <tr>
+                                <td>{{ result.phone }}</td>
+                                <td class="{% if 'Sent' in result.status %}status-success{% else %}status-failed{% endif %}">
+                                    {{ result.status }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <form method="POST" style="margin-top: 20px;">
+                    <button type="submit" class="btn">Send Another Batch</button>
+                </form>
+            </div>
+        {% else %}
+            <!-- Show form -->
+            <form method="POST">
+                <div class="form-group">
+                    <label for="phone_numbers">Phone Numbers (one per line, with or without +91):</label>
+                    <textarea id="phone_numbers" name="phone_numbers" placeholder="9876543210&#10;9876543210&#10;+919876543210" required></textarea>
+                    <small style="color: #666; margin-top: 5px; display: block;">
+                        Enter phone numbers with or without country code. Format: 10 digit Indian numbers or international format.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Enter your SMS message here..." required></textarea>
+                    <small style="color: #666; margin-top: 5px; display: block;">
+                        Character count: <span id="char-count">0</span> / 160
+                    </small>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn">📤 Send SMS</button>
+                </div>
+            </form>
+
+            <!-- Quick customer phone number picker -->
+            {% if customers %}
+                <h3 style="margin-top: 40px;">Quick Pick from Customers:</h3>
+                <div class="customer-list">
+                    {% for customer in customers %}
+                        <div class="customer-item" onclick="addPhoneNumber('{{ customer.mobile }}')">
+                            <strong>{{ customer.name }}</strong> - {{ customer.mobile }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <script>
+        // Character counter
+        const messageInput = document.getElementById('message');
+        const charCount = document.getElementById('char-count');
+        
+        if (messageInput) {
+            messageInput.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+            });
+        }
+
+        // Add customer phone number
+        function addPhoneNumber(phone) {
+            const textarea = document.getElementById('phone_numbers');
+            if (textarea.value.trim()) {
+                textarea.value += '\n' + phone;
+            } else {
+                textarea.value = phone;
+            }
+            textarea.focus();
+        }
+    </script>
+</body>
+</html>

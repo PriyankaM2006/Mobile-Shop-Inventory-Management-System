@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mobile Shop | Add Product</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(15,23,42,.75), rgba(15,23,42,.75)),
+        url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9");
+    background-size:cover;
+    background-position:center;
+}
+
+.sidebar{
+    width:230px;
+    min-height:100vh;
+    position:fixed;
+    background:rgba(30,41,59,0.95);
+}
+
+.sidebar h2{
+    text-align:center;
+    color:#fff;
+    padding:24px 0;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li a{
+    display:flex;
+    gap:12px;
+    padding:15px 24px;
+    color:#e5e7eb;
+    text-decoration:none;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+.main{
+    margin-left:230px;
+    padding:40px;
+    color:#fff;
+}
+
+.form-card{
+    max-width:760px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+    padding:35px;
+    border-radius:18px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea,
+select{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+}
+
+textarea{
+    resize:none;
+}
+
+.tech-fields,
+.memory-fields{
+    display:none;
+}
+
+.btn{
+    padding:12px 24px;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn-save{ 
+    background:#22c55e; 
+    color:#fff; 
+}
+
+.btn-buy{
+    background:#f59e0b;
+    color:#fff;
+    margin-left:10px;
+}
+
+.btn-reset{ 
+    background:#e5e7eb; 
+    margin-left:10px; 
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>📱 Mobile Shop</h2>
+    <ul>
+        <li><a href="/dashboard"><i class="fa fa-list"></i> View All Product</a></li>
+        <li><a href="/add_mobile" class="active"><i class="fa fa-shopping-cart"></i> Purchase Product</a></li>
+        <li><a href="/reports"><i class="fa fa-trash"></i> Delete Product</a></li>
+        <li><hr style="margin: 10px 0; border: none; border-top: 1px solid rgba(255,255,255,0.2);"></li>
+        <li><a href="/admin/login" style="background: rgba(231,76,60,0.2); color: #ff6b6b;"><i class="fa fa-shield-alt"></i>🔐 Admin Login</a></li>
+        <li><a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <h2>Purchase Product</h2>
+
+    <div class="form-card">
+        <form method="post">
+
+            <div class="form-group">
+                <label>Product Type</label>
+                <select name="product_type" onchange="toggleFields(this.value)" required>
+                    <option value="">Select Product Type</option>
+                    <option>Smartphone</option>
+                    <option>Feature Phone</option>
+                    <option>Smartwatch</option>
+                    <option>Wireless Earbuds</option>
+                    <option>Power Bank</option>
+                    <option>Charger</option>
+                    <option>Memory Card</option>
+                    <option>Phone Case</option>
+                    <option>Screen Protector</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Model / Name</label>
+                <input type="text" name="model" placeholder="eg. Galaxy A15 / SanDisk Ultra" required>
+            </div>
+
+            <div class="form-group">
+                <label>Price (₹)</label>
+                <input type="number" name="price" placeholder="eg. 14999" required>
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" name="quantity" placeholder="eg. 10" required>
+            </div>
+
+            <!-- Phone fields -->
+            <div class="tech-fields" id="techFields">
+                <div class="form-group">
+                    <label>RAM</label>
+                    <input type="text" name="ram" placeholder="eg. 6 GB">
+                </div>
+
+                <div class="form-group">
+                    <label>ROM</label>
+                    <input type="text" name="rom" placeholder="eg. 128 GB">
+                </div>
+            </div>
+
+            <!-- Memory Card fields -->
+            <div class="memory-fields" id="memoryFields">
+                <div class="form-group">
+                    <label>Capacity</label>
+                    <select name="capacity">
+                        <option value="">Select Capacity</option>
+                        <option>16 GB</option>
+                        <option>32 GB</option>
+                        <option>64 GB</option>
+                        <option>128 GB</option>
+                        <option>256 GB</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Card Type</label>
+                    <select name="card_type">
+                        <option value="">Select Card Type</option>
+                        <option>microSD</option>
+                        <option>SD Card</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Speed Class</label>
+                    <select name="speed_class">
+                        <option value="">Select Speed</option>
+                        <option>Class 10</option>
+                        <option>UHS-I</option>
+                        <option>UHS-II</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Warranty</label>
+                    <input type="text" name="warranty" placeholder="eg. 5 Years">
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <button class="btn btn-save" type="submit" name="action" value="save">
+                Save Product
+            </button>
+
+            <button class="btn btn-buy" type="submit" name="action" value="buy">
+                Buy Now
+            </button>
+
+            <button class="btn btn-reset" type="reset">
+                Clear
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+function toggleFields(type){
+    const tech = document.getElementById("techFields");
+    const memory = document.getElementById("memoryFields");
+
+    tech.style.display = "none";
+    memory.style.display = "none";
+
+    if(type === "Smartphone" || type === "Feature Phone" || type === "Smartwatch"){
+        tech.style.display = "block";
+    }
+
+    if(type === "Memory Card"){
+        memory.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

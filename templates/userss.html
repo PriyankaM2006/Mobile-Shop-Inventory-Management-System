@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Purchases | Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 25px;
+    animation: fadeIn 1s ease;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+thead {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+th {
+    padding: 14px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 14px;
+    text-align: center;
+    color: #f1f1f1;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+tr {
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+tbody tr:hover {
+    background: rgba(0, 198, 255, 0.15);
+    transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.empty {
+    text-align: center;
+    color: #ccc;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    th, td {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <a href="/admin/reports" style="color: #00c6ff; text-decoration: none; font-weight: 600; margin-bottom: 15px; display: inline-block;">← Back to Reports</a>
+    <h2>All User Purchases</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if purchases %}
+                {% for p in purchases %}
+                <tr>
+                    <td>{{ p.username }}</td>
+                    <td>{{ p.product_name }}</td>
+                    <td>₹{{ p.price }}</td>
+                    <td>{{ p.quantity }}</td>
+                    <td>{{ p.purchase_date }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="empty">No purchases yet</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

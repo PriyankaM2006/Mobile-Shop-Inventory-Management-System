@@ -1,0 +1,9 @@
+{
+  "SENDER_EMAIL": "your_email@gmail.com",
+  "SENDER_PASSWORD": "your_gmail_app_password",
+  "SMTP_SERVER": "smtp.gmail.com",
+  "SMTP_PORT": 465,
+  "TWILIO_SID": "your_twilio_account_sid",
+  "TWILIO_TOKEN": "your_twilio_auth_token",
+  "TWILIO_FROM": "+1XXXXXXXXXX"
+}

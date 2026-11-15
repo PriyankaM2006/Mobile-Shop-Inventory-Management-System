@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Budget Power Banks </title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #1e293b;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 12px;
+}
+.card-content h3 {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #111827;
+}
+.card-content p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #334155;
+}
+.price {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2563eb;
+}
+   button {
+  margin-top: 8px;
+  padding: 8px 18px;
+  background-color: #1b6be0;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1454b8;
+}
+</style>
+</head>
+<body>
+
+<h1>Budget Power Banks </h1>
+
+<div class="grid">
+
+<!-- 30+ Power Banks -->
+<div class="card">
+    <img src="static/images/powerbank/1.png" alt="Mi Power Bank 10000mAh">
+    <div class="card-content">
+        <h3>Mi Power Bank 10000mAh</h3>
+        <p>Fast Charge, Dual USB</p>
+        <p class="price">₹899</p>
+        <button onclick='payNow({type:"Power Bank", model:"Mi Power Bank 10000mAh", capacity:"10000mAh", price:899, quality:"Fast Charge, Dual USB"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/2.png" alt="Realme Power Bank 2">
+    <div class="card-content">
+        <h3>Realme Power Bank 2</h3>
+        <p>18W PD, Sleek Design</p>
+        <p class="price">₹1,099</p>
+        <button onclick='payNow({type:"Power Bank", model:"Realme Power Bank 2", capacity:"10000mAh", price:1099, quality:"18W PD, Sleek Design"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/3.png" alt="boAt Power Bank 10000mAh">
+    <div class="card-content">
+        <h3>boAt Power Bank 10000mAh</h3>
+        <p>Dual Port, LED Indicator</p>
+        <p class="price">₹799</p>
+        <button onclick='payNow({type:"Power Bank", model:"boAt Power Bank 10000mAh", capacity:"10000mAh", price:799, quality:"Dual Port, LED Indicator"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/4.png" alt="Portronics Power Brick">
+    <div class="card-content">
+        <h3>Portronics Power Brick</h3>
+        <p>10K mAh, QC Support</p>
+        <p class="price">₹999</p>
+        <button onclick='payNow({type:"Power Bank", model:"Portronics Power Brick", capacity:"10000mAh", price:999, quality:"QC Support"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/5.png" alt="Syska Power Bank">
+    <div class="card-content">
+        <h3>Syska Power Bank</h3>
+        <p>Large Capacity, Compact</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Power Bank", model:"Syska Power Bank", capacity:"10000mAh", price:1299, quality:"Large Capacity, Compact"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/6.png" alt="USAMS Power Bank">
+    <div class="card-content">
+        <h3>USAMS Power Bank</h3>
+        <p>Type‑C Input, LED Display</p>
+        <p class="price">₹1,499</p>
+        <button onclick='payNow({type:"Power Bank", model:"USAMS Power Bank", capacity:"10000mAh", price:1499, quality:"Type‑C Input, LED Display"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/7.png" alt="Ambrane Power Bank">
+    <div class="card-content">
+        <h3>Ambrane Power Bank</h3>
+        <p>20K mAh, Dual USB</p>
+        <p class="price">₹1,899</p>
+        <button onclick='payNow({type:"Power Bank", model:"Ambrane Power Bank", capacity:"20000mAh", price:1899, quality:"Dual USB"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/8.png" alt="Zebronics Power Bank">
+    <div class="card-content">
+        <h3>Zebronics Power Bank</h3>
+        <p>Lenovo Grade Cell</p>
+        <p class="price">₹1,399</p>
+        <button onclick='payNow({type:"Power Bank", model:"Zebronics Power Bank", capacity:"10000mAh", price:1399, quality:"Lenovo Grade Cell"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/9.png" alt="Lenovo Power Bank">
+    <div class="card-content">
+        <h3>Lenovo Power Bank</h3>
+        <p>High Efficiency, Safe</p>
+        <p class="price">₹1,599</p>
+        <button onclick='payNow({type:"Power Bank", model:"Lenovo Power Bank", capacity:"10000mAh", price:1599, quality:"High Efficiency, Safe"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/10.png" alt="HP Power Bank">
+    <div class="card-content">
+        <h3>HP Power Bank</h3>
+        <p>Portable & Reliable</p>
+        <p class="price">₹1,899</p>
+        <button onclick='payNow({type:"Power Bank", model:"HP Power Bank", capacity:"10000mAh", price:1899, quality:"Portable & Reliable"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/11.png" alt="Dell Power Bank">
+    <div class="card-content">
+        <h3>Dell Power Bank</h3>
+        <p>Quick Charge Supported</p>
+        <p class="price">₹1,999</p>
+        <button onclick='payNow({type:"Power Bank", model:"Dell Power Bank", capacity:"10000mAh", price:1999, quality:"Quick Charge Supported"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/12.png" alt="Sony Power Bank">
+    <div class="card-content">
+        <h3>Sony Power Bank</h3>
+        <p>Compact, High Output</p>
+        <p class="price">₹1,799</p>
+        <button onclick='payNow({type:"Power Bank", model:"Sony Power Bank", capacity:"10000mAh", price:1799, quality:"Compact, High Output"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Continue adding more in the same pattern to reach 30+ items -->
+<div class="card">
+    <img src="static/images/powerbank/13.png" alt="Targus Power Bank">
+    <div class="card-content">
+        <h3>Targus Power Bank</h3>
+        <p>Reliable & Compact</p>
+        <p class="price">₹1,699</p>
+        <button onclick='payNow({type:"Power Bank", model:"Targus Power Bank", capacity:"10000mAh", price:1699, quality:"Reliable & Compact"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/14.png" alt="Mi Power Bank 20000mAh">
+    <div class="card-content">
+        <h3>Mi Power Bank 20000mAh</h3>
+        <p>Large Capacity, Fast</p>
+        <p class="price">₹1,999</p>
+        <button onclick='payNow({type:"Power Bank", model:"Mi Power Bank 20000mAh", capacity:"20000mAh", price:1999, quality:"Large Capacity, Fast"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/15.png" alt="Realme Narzo Power Bank">
+    <div class="card-content">
+        <h3>Realme Narzo Power Bank</h3>
+        <p>Quick Charge Support</p>
+        <p class="price">₹1,799</p>
+        <button onclick='payNow({type:"Power Bank", model:"Realme Narzo Power Bank", capacity:"10000mAh", price:1799, quality:"Quick Charge Support"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/16.png" alt="Ambrane QC Power Bank">
+    <div class="card-content">
+        <h3>Ambrane QC Power Bank</h3>
+        <p>Quick Charge, Safe Cells</p>
+        <p class="price">₹1,699</p>
+        <button onclick='payNow({type:"Power Bank", model:"Ambrane QC Power Bank", capacity:"10000mAh", price:1699, quality:"Quick Charge, Safe Cells"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/17.png" alt="Portronics Power Egg">
+    <div class="card-content">
+        <h3>Portronics Power Egg</h3>
+        <p>LED Display, Safe</p>
+        <p class="price">₹1,499</p>
+        <button onclick='payNow({type:"Power Bank", model:"Portronics Power Egg", capacity:"10000mAh", price:1499, quality:"LED Display, Safe"})'>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/18.png" alt="Syska Slim Power Bank">
+    <div class="card-content">
+        <h3>Syska Slim Power Bank</h3>
+        <p>Sleek Design</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Power Bank", model:"Syska Slim Power Bank", capacity:"10000mAh", price:1299, quality:"Sleek Design"})'>Pay Now</button>
+    </div>
+</div>
+<div class="card">
+    <img src="static/images/powerbank/19.png" alt="Zebronics Power Bank">
+    <div class="card-content">
+        <h3>Zebronics Power Bank</h3>
+        <p>Capacity: 12000 mAh | Output: 15W | Dual USB</p>
+        <p class="price">₹1,399</p>
+        <button onclick='payNow({type:"Power Bank", model:"Zebronics Power Bank", capacity:"12000mAh", price:1399, quality:"Output: 15W | Dual USB"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Power Bank 9 -->
+<div class="card">
+    <img src="static/images/powerbank/20.png" alt="Lenovo Power Bank">
+    <div class="card-content">
+        <h3>Lenovo Power Bank</h3>
+        <p>Capacity: 15000 mAh | Output: 18W | USB + USB‑C</p>
+        <p class="price">₹1,599</p>
+        <button onclick='payNow({type:"Power Bank", model:"Lenovo Power Bank", capacity:"15000mAh", price:1599, quality:"Output: 18W | USB + USB‑C"})'>Pay Now</button>
+    </div>
+</div>
+
+<!-- Power Bank 10 -->
+<div class="card">
+    <img src="static/images/powerbank/21.png" alt="HP Power Bank">
+    <div class="card-content">
+        <h3>HP Power Bank</h3>
+        <p>Capacity: 20000 mAh | Output: 18W | USB + USB‑C</p>
+        <p class="price">₹1,899</p>
+        <button onclick=>Pay Now</button>
+    </div>
+</div>
+
+<!-- Power Bank 11 -->
+<div class="card">
+    <img src="static/images/powerbank/22.png" alt="Dell Power Bank">
+    <div class="card-content">
+        <h3>Dell Power Bank</h3>
+        <p>Capacity: 15000 mAh | Output: 18W | Dual USB</p>
+        <p class="price">₹1,999</p>
+        <button onclick=>Pay Now</button>
+    </div>
+</div>
+
+<!-- Power Bank 12 -->
+<div class="card">
+    <img src="static/images/powerbank/23.png" alt="Sony Power Bank">
+    <div class="card-content">
+        <h3>Sony Power Bank</h3>
+        <p>Capacity: 10000 mAh | Output: 10W | USB + USB‑C</p>
+        <p class="price">₹1,799</p>
+        <button onclick=>Pay Now</button>
+    </div>
+</div>
+
+<!-- More power banks to reach 30+ -->
+<div class="card">
+    <img src="static/images/powerbank/24.png" alt="Mi Lite 10000mAh">
+    <div class="card-content">
+        <h3>Mi Lite Power Bank</h3>
+        <p>Capacity: 10000 mAh | Output: 12W | Dual USB</p>
+        <p class="price">₹899</p>
+        <button onclick=>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/25.png" alt="Realme Narzo Power Bank">
+    <div class="card-content">
+        <h3>Realme Narzo Power Bank</h3>
+        <p>Capacity: 10000 mAh | Output: 18W | USB + USB‑C</p>
+        <p class="price">₹1,799</p>
+        <button onclick=>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/26.png" alt="Ambrane QC Power Bank">
+    <div class="card-content">
+        <h3>Ambrane QC Power Bank</h3>
+        <p>Capacity: 12000 mAh | Output: 18W QC | Dual USB</p>
+        <p class="price">₹1,699</p>
+        <button onclick=>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/27.png" alt="Portronics Power Egg">
+    <div class="card-content">
+        <h3>Portronics Power Egg</h3>
+        <p>Capacity: 10000 mAh | Output: 12W | LED Display</p>
+        <p class="price">₹1,499</p>
+        <button onclick=>Pay Now</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="static/images/powerbank/28.png" alt="Syska Slim Power Bank">
+    <div class="card-content">
+        <h3>Syska Slim Power Bank</h3>
+        <p>Capacity: 8000 mAh | Output: 10W | Slim Body</p>
+        <p class="price">₹1,299</p>
+        <button onclick='payNow({type:"Power Bank", model:"Syska Slim Power Bank", capacity:"8000mAh", price:1299, quality:"Output: 10W | Slim Body"})'>Pay Now</button>
+    </div>
+</div>
+
+</div>
+
+<script>
+function payNow(product){
+  window.location.href = "/add_mobile?type=" + encodeURIComponent(product.type) + "&model=" + encodeURIComponent(product.model) + "&price=" + product.price + "&capacity=" + encodeURIComponent(product.capacity) + "&quality=" + encodeURIComponent(product.quality);
+}
+</script>
+
+</body>
+</html>

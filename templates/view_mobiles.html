@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Search Product | Mobile Shop</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+body{
+    background:#f1f5f9;
+}
+
+/* Sidebar */
+.sidebar{
+    width:220px;
+    min-height:100vh;
+    position:fixed;
+    left:0;
+    top:0;
+    background:#34495e;
+}
+.sidebar h2{
+    text-align:center;
+    color:#fff;
+    padding:22px 0;
+}
+.sidebar ul{
+    list-style:none;
+}
+.sidebar ul li a{
+    display:flex;
+    gap:12px;
+    padding:15px 22px;
+    color:#ecf0f1;
+    text-decoration:none;
+}
+.sidebar ul li a:hover,
+.sidebar ul li a.active{
+    background:#2c3e50;
+    font-weight:600;
+}
+
+/* Main */
+.main{
+    margin-left:220px;
+    padding:30px;
+}
+.page-title{
+    font-size:26px;
+    margin-bottom:20px;
+    color:#1e293b;
+}
+
+/* Hero Image + Search */
+.hero{
+    position: relative;
+    background: url('https://vishnuinterior.com/public/media/mobile-shop.jpg') center/cover no-repeat;
+    border-radius:12px;
+    margin-bottom:25px;
+    height:250px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+.hero::after{
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.45);
+    border-radius:12px;
+}
+.search-box{
+    position:relative;
+    display:flex;
+    gap:12px;
+    width:70%;
+    z-index:1;
+}
+.search-box input{
+    flex:1;
+    padding:12px 14px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+.search-box button{
+    padding:12px 22px;
+    border:none;
+    border-radius:10px;
+    background:#ff6b6b;
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+.search-box button:hover{
+    background:#ff4757;
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+th, td{
+    padding:14px;
+    text-align:left;
+}
+th{
+    background:#2563eb;
+    color:#fff;
+}
+tr:nth-child(even){
+    background:#f1f5f9;
+}
+p{
+    margin-top:15px;
+    color:#555;
+    font-size:16px;
+}
+
+/* Customer Form Styling */
+.customer-form-section {
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.customer-form-section h3 {
+    color:#333;
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.form-row {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.form-row input {
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.form-row input:focus {
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 5px rgba(37,99,235,0.2);
+}
+
+.customer-form-section button {
+    background:#2563eb;
+    color:#fff;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.customer-form-section button:hover {
+    background:#1d4ed8;
+}
+
+.action-btn {
+    background:#22c55e;
+    color:#fff;
+    padding:8px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:12px;
+    transition:0.3s;
+}
+
+.action-btn:hover {
+    background:#16a34a;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+     <h2>📱 Mobile Shop</h2>
+    <ul>
+        <li><a href="/dashboard"><i class="fa fa-list"></i>View All Product</a></li>
+        <li><a href="/add_mobile"><i class="fa fa-plus"></i>Add Product</a></li>
+        <li><a href="/reports"><i class="fa fa-chart-bar"></i>Reports</a></li>
+        <li><hr style="margin: 10px 0; border: none; border-top: 1px solid rgba(255,255,255,0.2);"></li>
+        <li><a href="/admin/login" style="background: rgba(231,76,60,0.2); color: #ff6b6b;"><i class="fa fa-shield-alt"></i>🔐 Admin Login</a></li>
+        <li><a href="/logout"><i class="fa fa-sign-out-alt"></i>Logout</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <!-- <div class="page-title">Search Product</div> -->
+
+    <div class="hero">
+        <!-- Hero section -->
+    </div>
+
+    <!-- Customer Details Form -->
+    <div class="customer-form-section">
+        <h3>Customer Information</h3>
+        <form id="customerForm" method="GET">
+            <div class="form-row">
+                <input type="text" id="customerName" placeholder="Full Name" required>
+                <input type="email" id="customerEmail" placeholder="Email Address" required>
+            </div>
+            <div class="form-row">
+                <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+                <input type="text" id="customerAddress" placeholder="Address" required>
+            </div>
+            <button type="button" onclick="saveCustomerInfo()">Save Customer Info</button>
+        </form>
+    </div>
+
+    {% if products %}
+    <table>
+        <tr>
+            <th>Product Type</th>
+            <!-- <th>Brand</th> -->
+            <th>Model</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+            <th>Picture</th>
+            <th>Action</th>
+        </tr>
+        {% for p in products %}
+        <tr>
+            <td>{{ p.product_type }}</td>
+            <!-- <td>{{ p.brand }}</td> -->
+            <td>{{ p.model }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.quantity }}</td>
+            <td>
+                {% if p.image_url %}
+                    <button type="button" class="action-btn" onclick="viewPicture('{{ p.image_url }}')" style="background:#3b82f6;">
+                        <i class="fa fa-image"></i> View
+                    </button>
+                {% else %}
+                    <span style="color:#999;">-</span>
+                {% endif %}
+            </td>
+            <td>
+                <button type="button" class="action-btn" onclick="selectProduct('{{ p.product_type }}', '{{ p.model }}', '{{ p.price }}')">
+                    <i class="fa fa-check"></i> Select
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% elif query %}
+        <p>No products found.</p>
+    {% endif %}
+</div>
+
+<script>
+function viewPicture(imageUrl) {
+    const modal = document.createElement('div');
+    modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:9999;';
+    modal.innerHTML = `
+        <div style="background:white;padding:20px;border-radius:12px;max-width:600px;position:relative;">
+            <button onclick="this.parentElement.parentElement.remove()" style="position:absolute;top:10px;right:10px;background:#ef4444;color:white;border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:18px;">×</button>
+            <img src="${imageUrl}" style="width:100%;border-radius:8px;max-height:500px;object-fit:contain;">
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function saveCustomerInfo() {
+    const name = document.getElementById('customerName').value;
+    const email = document.getElementById('customerEmail').value;
+    const phone = document.getElementById('customerPhone').value;
+    const address = document.getElementById('customerAddress').value;
+    
+    if (name && email && phone && address) {
+        // Store in localStorage
+        localStorage.setItem('customerName', name);
+        localStorage.setItem('customerEmail', email);
+        localStorage.setItem('customerPhone', phone);
+        localStorage.setItem('customerAddress', address);
+        
+        alert('Customer information saved successfully!');
+    } else {
+        alert('Please fill all fields');
+    }
+}
+
+function selectProduct(type, model, price) {
+    const name = localStorage.getItem('customerName');
+    const email = localStorage.getItem('customerEmail');
+    const phone = localStorage.getItem('customerPhone');
+    const address = localStorage.getItem('customerAddress');
+    
+    if (!name) {
+        alert('Please save customer information first!');
+        return;
+    }
+    
+    // Redirect to payment with customer info and product details
+    const url = `/customer_details?type=${encodeURIComponent(type)}&model=${encodeURIComponent(model)}&price=${encodeURIComponent(price)}&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+    window.location.href = url;
+}
+
+// Load customer info if available
+window.addEventListener('DOMContentLoaded', function() {
+    const name = localStorage.getItem('customerName');
+    const email = localStorage.getItem('customerEmail');
+    const phone = localStorage.getItem('customerPhone');
+    const address = localStorage.getItem('customerAddress');
+    
+    if (name) document.getElementById('customerName').value = name;
+    if (email) document.getElementById('customerEmail').value = email;
+    if (phone) document.getElementById('customerPhone').value = phone;
+    if (address) document.getElementById('customerAddress').value = address;
+});
+</script>
+
+</body>
+</html>

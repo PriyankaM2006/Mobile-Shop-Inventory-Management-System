@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chargers Catalog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f3f6fb;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      margin-top: 25px;
+      background: linear-gradient(90deg, #1b6be0, #69e1f5 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .gallery {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+      padding-bottom: 50px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(23, 112, 208, 0.10);
+      margin: 0;
+      transition: transform 0.25s, box-shadow 0.18s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 13px 18px 13px;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.025);
+      box-shadow: 0 12px 32px rgba(23,112,208,0.16);
+    }
+    .card img {
+      width: 150px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: #f2f6fb;
+      box-shadow: 0 2px 5px #daf1ff33;
+    }
+    .model {
+      font-size: 1.13em;
+      font-weight: 600;
+      color: #14488e;
+      margin-bottom: 2px;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .brand {
+      font-size: 1em;
+      color: #228;
+      margin-bottom: 3px;
+      opacity: 0.80;
+      text-align: center;
+    }
+    .info {
+      font-size: 0.98em;
+      color: #4e4e4e;
+      margin-bottom: 2px;
+      text-align: center;
+    }
+    .price {
+      font-size: 1.16em;
+      color: #2499ff;
+      margin: 5px 0 2px 0;
+      font-weight: bold;
+      text-align: center;
+    }
+    .stars {
+      color: #f7d33c;
+      margin-top: 3px;
+      letter-spacing: 1px;
+      font-size: 1.03em;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      h1 {font-size: 2em;}
+      .card img { width: 100px; height: 140px; }
+      .card {padding: 10px 7px 14px 7px;}
+    }
+    button {
+  margin-top: 8px;
+  padding: 8px 18px;
+  background-color: #1b6be0;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1454b8;
+}
+  </style>
+</head>
+<body>
+  <h1>Mobile Phones Catalog</h1>
+  <div class="gallery">
+   <div class="card">
+  <img src="static/images/charger/1.png">
+  <div class="model">iPhone 14 Pro</div>
+  <div class="brand">Apple</div>
+  <div class="info">20W USB-C PD Fast Charger</div>
+  <p class="price">₹799</p>
+  <button onclick='payNow({type:"Charger", model:"20W USB-C PD Fast Charger", charger_hour:"20W", price:799, quality:"Fast Charger"})'>Pay Now</button>
+</div>
+
+<!-- Galaxy Z Fold 4 -->
+<div class="card">
+  <img src="static/images/charger/2.png">
+  <div class="model">Galaxy Z Fold 4</div>
+  <div class="brand">Samsung</div>
+  <div class="info">25W Samsung USB-C Fast Adapter</div>
+  <p class="price">₹899</p>
+  <button onclick='payNow({type:"Charger", model:"25W Samsung USB-C Fast Adapter", charger_hour:"25W", price:899, quality:"Fast Adapter"})'>Pay Now</button>
+</div>
+
+<!-- Galaxy S21 Ultra -->
+<div class="card">
+  <img src="static/images/charger/3.png">
+  <div class="model">Galaxy S21 Ultra</div>
+  <div class="brand">Samsung</div>
+  <div class="info">25W USB-C Fast Adapter</div>
+  <p class="price">₹899</p>
+  <button onclick='payNow({type:"Charger", model:"25W USB-C Fast Adapter", charger_hour:"25W", price:899, quality:"Fast Adapter"})'>Pay Now</button>
+</div>
+
+<!-- Pixel 6 Pro -->
+<div class="card">
+  <img src="static/images/charger/4.png">
+  <div class="model">Pixel 6 Pro</div>
+  <div class="brand">Google</div>
+  <div class="info">30W USB-C PD Charger</div>
+  <p class="price">₹999</p>
+  <button onclick='payNow({type:"Charger", model:"30W USB-C PD Charger", charger_hour:"30W", price:999, quality:"PD Charger"})'>Pay Now</button>
+</div>
+
+<!-- OnePlus 10 Pro -->
+<div class="card">
+  <img src="static/images/charger/5.png">
+  <div class="model">OnePlus 10 Pro</div>
+  <div class="brand">OnePlus</div>
+  <div class="info">65W Warp Charge Adapter</div>
+  <p class="price">₹1,599</p>
+  <button onclick='payNow({type:"Charger", model:"65W Warp Charge Adapter", charger_hour:"65W", price:1599, quality:"Warp Charge"})'>Pay Now</button>
+</div>
+
+<!-- P50 Pro -->
+<div class="card">
+  <img src="static/images/charger/6.png">
+  <div class="model">P50 Pro</div>
+  <div class="brand">Huawei</div>
+  <div class="info">66W SuperCharge Adapter</div>
+  <p class="price">₹1,499</p>
+  <button onclick='payNow({type:"Charger", model:"66W SuperCharge Adapter", charger_hour:"66W", price:1499, quality:"SuperCharge"})'>Pay Now</button>
+</div>
+
+<!-- Find X3 Pro -->
+<div class="card">
+  <img src="static/images/charger/7.png">
+  <div class="model">Find X3 Pro</div>
+  <div class="brand">Oppo</div>
+  <!-- <div class="info">12GB | 256GB</div>
+  <div class="price">₹1,09,999</div>
+  <button onclick="alert('Proceed to pay ₹1,09,999')">Pay Now</button> -->
+  <p class="price">₹1,599</p>
+  <div class="info">65W SuperVOOC Charger</div>
+  <button onclick='payNow({type:"Charger", model:"65W SuperVOOC Charger", charger_hour:"65W", price:1599, quality:"SuperVOOC"})'>Pay Now</button>
+</div>
+
+<!-- GT Neo 2 -->
+<div class="card">
+  <img src="static/images/charger/8.png">
+  <div class="model">GT Neo 2</div>
+  <div class="brand">Realme</div>
+  <!-- <div class="info">8GB | 128GB</div>
+  <div class="price">₹39,999</div>
+  <button onclick="alert('Proceed to pay ₹39,999')">Pay Now</button> -->
+  <p class="price">₹899</p>
+  <div class="info">50W Fast Charger</div>
+  <button onclick='payNow({type:"Charger", model:"50W Fast Charger", charger_hour:"50W", price:899, quality:"Fast Charger"})'>Pay Now</button>
+</div>
+
+<!-- X70 Pro+ -->
+<div class="card">
+  <img src="static/images/charger/9.png">
+  <div class="model">X70 Pro+</div>
+  <div class="brand">Vivo</div>
+  <div class="info">55W FlashCharge Adapter</div>
+  <p class="price">₹1,199</p>
+  <button onclick='payNow({type:"Charger", model:"55W FlashCharge Adapter", charger_hour:"55W", price:1199, quality:"FlashCharge"})'>Pay Now</button>
+</div>
+
+<!-- OnePlus 11 -->
+<div class="card">
+  <img src="static/images/charger/10.png">
+  <div class="model">OnePlus 11</div>
+  <div class="brand">OnePlus</div>
+  <!-- <div class="info">16GB | 256GB</div>
+  <div class="price">₹61,999</div>
+  <button onclick="alert('Proceed to pay ₹61,999')">Pay Now</button> -->
+<p class="price">₹1,799</p>
+  <div class="info">80W SUPERVOOC Charger</div>
+  <button onclick='payNow({type:"Charger", model:"80W SUPERVOOC Charger", charger_hour:"80W", price:1799, quality:"SUPERVOOC"})'>Pay Now</button>
+</div>
+
+<!-- Reno 8 Pro -->
+<div class="card">
+  <img src="static/images/charger/11.png">
+  <div class="model">Reno 8 Pro</div>
+  <div class="brand">Oppo</div>
+  <!-- <div class="info">8GB | 128GB</div>
+  <div class="price">₹45,999</div>
+  <button onclick="alert('Proceed to pay ₹45,999')">Pay Now</button> -->
+<p class="price">₹1,499</p>
+  <div class="info">65W SuperVOOC Adapter</div>
+  <button onclick='payNow({type:"Charger", model:"65W SuperVOOC Adapter", charger_hour:"65W", price:1499, quality:"SuperVOOC"})'>Pay Now</button>
+</div>
+
+<!-- GT 2 Pro -->
+<div class="card">
+  <img src="static/images/charger/12.png">
+  <div class="model">GT 2 Pro</div>
+  <div class="brand">Realme</div>
+  <!-- <div class="info">12GB | 256GB</div>
+  <div class="price">₹49,999</div>
+  <button onclick="alert('Proceed to pay ₹49,999')">Pay Now</button> -->
+<p class="price">₹899</p>
+  <div class="info">65W Fast Charger</div>
+  <button onclick='payNow({type:"Charger", model:"65W Fast Charger", charger_hour:"65W", price:899, quality:"Fast Charger"})'>Pay Now</button>
+</div>
+
+<!-- X80 Pro -->
+<div class="card">
+  <img src="static/images/charger/13.png">
+  <div class="model">X80 Pro</div>
+  <div class="brand">Vivo</div>
+  <!-- <div class="info">12GB | 256GB</div>
+  <div class="price">₹79,999</div>
+  <button onclick="alert('Proceed to pay ₹79,999')">Pay Now</button> -->
+ <p class="price">₹1,199</p>
+  <div class="info">55W FlashCharge Adapter</div>
+  <button onclick='payNow({type:"Charger", model:"55W FlashCharge Adapter", charger_hour:"55W", price:1199, quality:"FlashCharge"})'>Pay Now</button>
+</div>
+
+<!-- Mate 50 Pro -->
+<div class="card">
+  <img src="static/images/charger/14.png">
+  <div class="model">Mate 50 Pro</div>
+  <div class="brand">Huawei</div>
+  <!-- <div class="info">12GB | 256GB</div>
+  <div class="price">₹1,09,999</div>
+  <button onclick="alert('Proceed to pay ₹1,09,999')">Pay Now</button> -->
+ <p class="price">₹1,499</p>
+  <div class="info">66W Huawei SuperCharge</div>
+  <button onclick='payNow({type:"Charger", model:"66W Huawei SuperCharge", charger_hour:"66W", price:1499, quality:"SuperCharge"})'>Pay Now</button>
+</div>
+
+<!-- iPhone 13 Pro Max -->
+<div class="card">
+  <img src="static/images/charger/15.png">
+  <div class="model">iPhone 13 Pro Max</div>
+  <div class="brand">Apple</div> 
+  <!-- <div class="info">6GB | 128GB</div>
+  <div class="price">₹1,09,999</div>
+  <button onclick="alert('Proceed to pay ₹1,09,999')">Pay Now</button>  -->
+  <p class="price">₹799</p>
+  <div class="info">20W USB-C PD Adapter</div>
+  <button onclick='payNow({type:"Charger", model:"20W USB-C PD Adapter", charger_hour:"20W", price:799, quality:"PD Adapter"})'>Pay Now</button>
+</div>
+
+<div class="card">
+    <img src="static/images/charger/16.png" alt="Ambrane 20W Charger">
+    <div class="model">Ambrane 20W PD Charger</div>
+    <div class="brand">Ambrane</div>
+    <div class="info">20W Output, Power Delivery, BIS Certified</div>
+    <p class="price">₹499</p>
+    <button onclick='payNow({type:"Charger", model:"Ambrane 20W PD Charger", charger_hour:"20W", price:499, quality:"PD Charger"})'>Pay Now</button>
+</div>
+
+<!-- Charger 3: Portronics Adapto 45C -->
+<div class="card">
+    <img src="static/images/charger/17.png " alt="Portronics Adapto 45C">
+    <div class="model">Portronics Adapto 45C</div>
+    <div class="brand">Portronics</div>
+    <div class="info">Dual Port (USB‑A + USB‑C), 22.5W</div>
+    <p class="price">₹470</p>
+    <button onclick='payNow({type:"Charger", model:"Portronics Adapto 45C", charger_hour:"22.5W", price:470, quality:"Dual Port"})'>Pay Now</button>
+</div>
+
+<!-- Charger 4: Samsung EP‑T2510NBNG 25W -->
+<div class="card">
+    <img src="static/images/charger/18.png " alt="Samsung 25W Charger">
+    <div class="model">Samsung 25W Charger</div>
+    <div class="brand">Samsung</div>
+    <div class="info">USB‑C Fast Adapter, Compact</div>
+    <p class="price">₹900</p>
+    <button onclick='payNow({type:"Charger", model:"Samsung 25W Charger", charger_hour:"25W", price:900, quality:"Fast Adapter"})'>Pay Now</button>
+</div>
+
+<!-- Charger 5: Samsung TA220 35W -->
+<div class="card">
+    <img src="static/images/charger/19.png" alt="Samsung 35W Charger">
+    <div class="model">Samsung 35W Duo Adapter</div>
+    <div class="brand">Samsung</div>
+    <div class="info">Fast Charge, Dual Output</div>
+    <p class="price">₹1,900</p>
+    <button onclick='payNow({type:"Charger", model:"Samsung 35W Duo Adapter", charger_hour:"35W", price:1900, quality:"Duo Adapter"})'>Pay Now</button>
+</div>
+
+<!-- Charger 6: CMF by Nothing C383 33W -->
+<div class="card">
+    <img src="static/images/charger/20.png" alt="CMF by Nothing C383 33W Charger">
+    <div class="model">CMF by Nothing C383</div>
+    <div class="brand">CMF by Nothing</div>
+    <div class="info">33W USB‑C Fast Charging</div>
+    <p class="price">₹900</p>
+    <button onclick='payNow({type:"Charger", model:"CMF by Nothing C383", charger_hour:"33W", price:900, quality:"Fast Charging"})'>Pay Now</button>
+</div>
+
+<!-- Charger 7: Portronics Adapto 35G -->
+<div class="card">
+    <img src="static/images/charger/21.png" alt="Portronics Adapto 35G Charger">
+    <div class="model">Portronics Adapto 35G</div>
+    <div class="brand">Portronics</div>
+    <div class="info">Fast USB‑C Charger, Travel Friendly</div>
+    <p class="price">₹599</p>
+    <button onclick='payNow({type:"Charger", model:"Portronics Adapto 35G", charger_hour:"35W", price:599, quality:"Travel Friendly"})'>Pay Now</button>
+</div>
+
+<!-- Charger 8: Portronics Adapto 12 -->
+<div class="card">
+    <img src="static/images/charger/22.png" alt="Portronics Adapto 12 Charger">
+    <div class="model">Portronics Adapto 12</div>
+    <div class="brand">Portronics</div>
+    <div class="info">USB‑A Quick Charger, Compact</div>
+    <p class="price">₹250</p>
+    <button onclick='payNow({type:"Charger", model:"Portronics Adapto 12", charger_hour:"12W", price:250, quality:"Quick Charger"})'>Pay Now</button>
+</div>
+
+<!-- Charger 9: Generic 18W Fast Wall Adapter -->
+<div class="card">
+    <img src="static/images/charger/23.png" alt="18W Fast Charger">
+    <div class="model">18W Fast Wall Charger</div>
+    <div class="brand">Generic</div>
+    <div class="info">Standard Fast Charging</div>
+    <p class="price">₹500</p>
+    <button onclick='payNow({type:"Charger", model:"18W Fast Wall Charger", charger_hour:"18W", price:500, quality:"Fast Charging"})'>Pay Now</button>
+</div>
+
+<!-- Charger 10: Dual Port 20W Charger -->
+<div class="card">
+    <img src="static/images/charger/24.png" alt="Dual Port 20W Charger">
+    <div class="model">Dual Port 20W Charger</div>
+    <div class="brand">Generic</div>
+    <div class="info">USB‑A + USB‑C | Fast Charge</div>
+    <p class="price">₹599</p>
+    <button onclick='payNow({type:"Charger", model:"Dual Port 20W Charger", charger_hour:"20W", price:599, quality:"Dual Port"})'>Pay Now</button>
+</div>
+<!-- cards end here -->
+
+<script>
+function payNow(product){
+  window.location.href = "/add_mobile?type=" + encodeURIComponent(product.type || "Charger") + "&model=" + encodeURIComponent(product.model || "Unknown") + "&price=" + (product.price || 0) + "&charger_hour=" + encodeURIComponent(product.charger_hour || "") + "&quality=" + encodeURIComponent(product.quality || "");
+}
+</script>
+    <!-- Repeat similar blocks up to 50+ phones -->
+    <!-- You can copy and change model/brand/price/images to complete the catalog -->
+
+  </div>
+</body>
+</html>

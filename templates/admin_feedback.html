@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin - All Feedback | Mobile Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;background:#f4f6f8;color:#222;padding:20px}
+.container{max-width:1000px;margin:0 auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,0.08)}
+.header{display:flex;align-items:center;justify-content:space-between}
+.header h1{font-size:20px}
+.feedback-list{margin-top:18px}
+.fb{border:1px solid #eee;padding:14px;border-radius:8px;margin-bottom:12px;display:flex;gap:12px}
+.fb .meta{flex:1}
+.fb .images{width:180px;display:flex;gap:6px;flex-wrap:wrap}
+.fb img{width:80px;height:80px;object-fit:cover;border-radius:6px}
+.rating{color:#f59e0b;font-weight:700;margin-bottom:6px}
+.small{font-size:12px;color:#666}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1><i class="fa-solid fa-comment-dots"></i> All Feedback (Admin)</h1>
+        <div>
+            <a href="/admin" style="text-decoration:none;color:#0d6efd">← Back to Admin</a>
+        </div>
+    </div>
+
+    <div class="feedback-list">
+        {% if feedbacks %}
+            {% for fb in feedbacks %}
+                <div class="fb">
+                    <div class="meta">
+                        <div><strong>{{ fb.get('name','Anonymous') }}</strong> <span class="small">— {{ fb.get('order_id','') }}</span></div>
+                        <div class="rating">{% for i in range(fb.get('rating',0)|int) %}★{% endfor %}{% for i in range(5 - (fb.get('rating',0)|int)) %}☆{% endfor %}</div>
+                        <div class="small">Submitted: {{ fb.get('date','') }}</div>
+                        <p style="margin-top:8px">{{ fb.get('comment','') }}</p>
+                    </div>
+                    <div class="images">
+                        {% for img in fb.get('images',[]) %}
+                            <img src="/static/uploads/{{ img }}" alt="feedback image">
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No feedback entries yet.</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

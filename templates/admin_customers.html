@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin | Customer Management</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+}
+
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:20px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header h1{
+    color:#333;
+    font-size:28px;
+}
+
+.btn-add{
+    background:#22c55e;
+    color:#fff;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:0.3s;
+}
+
+.btn-add:hover{
+    background:#16a34a;
+}
+
+.back-btn{
+    background:#6b7280;
+    color:#fff;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#4b5563;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+
+th, td{
+    padding:16px;
+    text-align:left;
+    border-bottom:1px solid #e5e7eb;
+}
+
+th{
+    background:#2563eb;
+    color:#fff;
+    font-weight:600;
+}
+
+tr:hover{
+    background:#f9fafb;
+}
+
+.status-badge{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.status-pending{
+    background:#fcd34d;
+    color:#78350f;
+}
+
+.status-completed{
+    background:#86efac;
+    color:#15803d;
+}
+
+.status-cancelled{
+    background:#fca5a5;
+    color:#7f1d1d;
+}
+
+/* Product and Price Styling */
+.product-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.product-empty {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.price-highlight {
+    display: inline-block;
+    background: #f0fdf4;
+    color: #15803d;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #22c55e;
+    font-size: 14px;
+}
+
+.price-empty {
+    color: #d1d5db;
+}
+
+.action-btns{
+    display:flex;
+    gap:8px;
+}
+
+.btn-edit{
+    background:#3b82f6;
+    color:#fff;
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    text-decoration:none;
+    font-size:12px;
+    transition:0.3s;
+}
+
+.btn-edit:hover{
+    background:#2563eb;
+}
+
+.btn-delete{
+    background:#ef4444;
+    color:#fff;
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:12px;
+    transition:0.3s;
+}
+
+.btn-delete:hover{
+    background:#dc2626;
+}
+
+.empty-message{
+    text-align:center;
+    padding:40px;
+    color:#6b7280;
+    font-size:16px;
+}
+
+.nav-links{
+    margin-top:20px;
+    padding:15px;
+    background:#fff;
+    border-radius:8px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-links a{
+    margin-right:15px;
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>📋 Customer Management</h1>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="/admin/customer/add" class="btn-add">
+                <i class="fa fa-plus"></i> Add New Customer
+            </a>
+            <!-- Manage Products removed per request -->
+            <a href="/admin/reports" class="btn-add" style="background: #ec4899;">
+                <i class="fa fa-chart-pie"></i> Reports
+            </a>
+            <a href="/admin/sales" class="btn-add" style="background: #f59e0b;">
+                <i class="fa fa-shopping-bag"></i> Sales
+            </a>
+            <a href="/admin/feedback" class="btn-add" style="background: #6b21a8;">
+                <i class="fa fa-comments"></i> View All Feedback
+            </a>
+            <a href="/admin/online-payments" class="btn-add" style="background: #0891b2;">
+                <i class="fa fa-credit-card"></i> Online Payments
+            </a>
+        </div>
+    </div>
+
+    {% if customers %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Product</th>
+                    <th>Price (₹)</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td><strong>{{ customer.id }}</strong></td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.mobile }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>
+                        {% if customer.product %}
+                            <span class="product-badge">{{ customer.product }}</span>
+                        {% else %}
+                            <span class="product-empty">Not specified</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if customer.amount %}
+                            <strong class="price-highlight">₹{{ customer.amount }}</strong>
+                        {% else %}
+                            <span class="price-empty">—</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ customer.date }}</td>
+                    <td>
+                        <span class="status-badge status-{{ customer.status.lower() }}">
+                            {{ customer.status }}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="action-btns">
+                            <a href="/admin/send-message/{{ customer.id }}" class="btn-edit" style="background:#2563eb;">
+                                <i class="fa fa-envelope"></i> Message
+                            </a>
+                            <a href="/admin/customer/{{ customer.id }}" class="btn-edit">
+                                <i class="fa fa-edit"></i> Edit
+                            </a>
+                            <form method="POST" action="/admin/customer/delete/{{ customer.id }}" style="display:inline;" onsubmit="return confirm('Delete this customer?');">
+                                <button type="submit" class="btn-delete">
+                                    <i class="fa fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="empty-message">
+            <i class="fa fa-inbox" style="font-size:48px; margin-bottom:10px; color:#9ca3af;"></i>
+            <p>No customers found. <a href="/admin/customer/add" style="color:#2563eb;">Add one now!</a></p>
+        </div>
+    {% endif %}
+
+    <div class="nav-links">
+        <a href="/dashboard"><i class="fa fa-arrow-left"></i> Back to Dashboard</a>
+        <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+</body>
+</html>

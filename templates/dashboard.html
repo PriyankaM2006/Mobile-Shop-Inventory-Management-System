@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mobile Shop | Home</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+body {
+    background: #f1f5f9;
+    min-height: 100vh;
+}
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: #34495e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px 24px;
+    border-bottom: 1px solid #2c3e50;
+    transition: background 0.2s;
+}
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background: #2c3e50;
+    font-weight: bold;
+    border-radius: 0;
+}
+.main {
+    flex: 1;
+    padding: 30px;
+    margin-left: 220px;
+}
+.page-heading {
+    font-size: 2em;
+    color: #1e293b;
+    margin-bottom: 18px;
+    font-weight: bold;
+    /* Optionally more styling */
+}
+.topbar {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+.card {
+    background: #fff;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    text-align: center;
+}
+.card:hover {
+    transform: translateY(-6px);
+}
+.card i {
+    font-size: 32px;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+.card h3 {
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+.card p {
+    font-size: 14px;
+    color: #64748b;
+}
+.business-info {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.business-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.business-card i {
+    font-size: 36px;
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+.business-card h3 {
+    color: #1e293b;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.business-details {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto 20px;
+}
+.business-details p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #64748b;
+}
+.payment-notice {
+    background: #e0f2fe;
+    color: #0277bd;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    border-left: 4px solid #0277bd;
+}
+.payment-notice i {
+    margin-right: 8px;
+}
+@media (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        min-height: unset;
+        position: static;
+    }
+    .main {
+        margin-left: 0;
+        padding: 12px;
+    }
+    .topbar {
+        border-radius: 0;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="sidebar">
+     <h2>📱 Mobile Shop</h2>
+    <ul>
+        <li><a href="/dashboard"><i class="fa fa-list"></i>View All Product</a></li>
+        <li><a href="/add_mobile"><i class="fa fa-plus"></i>Add Product</a></li>
+        <li><a href="/my_purchases" style="background: rgba(76, 175, 80, 0.2); color: #4caf50;"><i class="fa fa-shopping-bag"></i>📦 My Purchases</a></li>
+        <li><hr style="margin: 10px 0; border: none; border-top: 1px solid rgba(255,255,255,0.2);"></li>
+        <li><a href="/admin/login" style="background: rgba(231,76,60,0.2); color: #ff6b6b;"><i class="fa fa-shield-alt"></i>🔐 Admin Login</a></li>
+        <li><a href="/logout"><i class="fa fa-sign-out-alt"></i>Logout</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <div class="page-heading">
+        Welcome to Mobile Shop!
+    </div>
+    
+    {% if order_success == "true" %}
+    <div style="background: #d1fae5; color: #065f46; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #a7f3d0;">
+        <i class="fa fa-check-circle"></i> Order placed successfully! 
+        {% if payment_method %}
+        Payment method: <strong>{{ payment_method }}</strong>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <div class="topbar">
+        <h2>Product Categories</h2>
+    </div>
+    <div class="cards">
+        <div class="cards">
+   <a href="/phonep" style="text-decoration: none; color: inherit;">
+    <div class="card">
+        <i class="fa fa-mobile-screen"></i>
+        <h3>Smartphones</h3>
+        <p>Android and iOS devices</p>
+    </div>
+</a>    
+    <a href="/watches" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <i class="fa fa-clock"></i>
+            <h3>Smartwatches</h3>
+            <p>Fitness and smart wearables</p>
+        </div>
+    </a>
+
+    <a href="/wirelesse" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <i class="fa fa-headphones"></i>
+            <h3>Wireless Earbuds</h3>
+            <p>Bluetooth audio devices</p>
+        </div>
+    </a>
+
+    <a href="/powerbank" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <i class="fa fa-battery-full"></i>
+            <h3>Power Banks</h3>
+            <p>Portable charging solutions</p>
+        </div>
+    </a>
+
+    <a href="/charger" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <i class="fa fa-plug"></i>
+            <h3>Chargers</h3>
+            <p>Fast and standard chargers</p>
+        </div>
+    </a>
+
+    <a href="/memorycard" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <i class="fa fa-sd-card"></i>
+            <h3>Memory Cards</h3>
+            <p>Storage accessories</p>
+        </div>
+    </a>
+
+    <a href="/case" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <i class="fa fa-mobile"></i>
+            <h3>Phone Cases</h3>
+            <p>Protective covers</p>
+        </div>
+    </a>
+
+    <a href="/tempor" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <i class="fa fa-shield-halved"></i>
+            <h3>Screen Protectors</h3>
+            <p>Tempered and film guards</p>
+        </div>
+    </a>
+</div>
+
+    </div>
+
+    <!-- Business Information Section -->
+    <div class="business-info">
+        <div class="business-card">
+            <i class="fa fa-store"></i>
+            <h3>{{ business.name }}</h3>
+            <div class="business-details">
+                <p><strong>GST Number:</strong> {{ business.gst_number }}</p>
+                <p><strong>UPI ID:</strong> {{ business.upi_id }}</p>
+                <p><strong>Customer Care:</strong> {{ business.phone }}</p>
+                <p><strong>Email:</strong> {{ business.email }}</p>
+                <p><strong>Address:</strong> {{ business.address }}</p>
+            </div>
+            <div class="payment-notice">
+                <i class="fa fa-info-circle"></i>
+                All payments are securely processed and received by {{ business.name }}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
